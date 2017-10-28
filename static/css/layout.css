@@ -1,0 +1,79 @@
+/*Remove a margem padrão de baixo da navbar e as bordas arredondadas*/
+.navbar {
+    margin-bottom: 0;
+    border-radius: 0;
+}
+
+/* Style the side navigation */
+.sidenav {
+    height: 100%;
+    width: 200px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #f1f1f1;
+    overflow-x: hidden;
+}
+
+/* Side navigation links */
+.sidenav a {
+    padding: 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color on hover */
+.sidenav a:hover {
+    background-color: #FBAE00;
+    color: black;
+}
+
+/* Style the content */
+.content {
+    margin-left: 200px;
+    padding-left: 20px;
+}
+
+.modal-header, h3, .close {
+    background-color: #4169E1;
+    color: white !important;
+    text-align: center;
+    font-size: 30px;
+}
+
+.modal-footer {
+    background-color: #f9f9f9;
+}
+
+/*Define o parágrafo com texto justificado e recuo de primeira linha*/
+p {
+    text-align: justify;
+    text-indent: 25px;
+}
+
+h2 {
+    font-size: 24px;
+    text-transform: uppercase;
+    color: #303030;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    color: #303030;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+/*Define o alinhamento e cores do rodapé*/
+footer {
+    background-color: #195128;
+    color: white;
+    padding: 5px;
+    font-size: 8pt;
+    font-weight: bold;
+    text-align: center;
+}

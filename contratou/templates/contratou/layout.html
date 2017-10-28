@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% block head %} {% endblock %}
+    <title>{% block titulo %}Contratou!{% endblock %}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static '/css/layout.css' %}">
+
+    {% block link_css %} {% endblock %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        {% block style %} {% endblock %}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            {% load static %}
+            <span class="navbar-brand"> <img src="{% static '/img/logo_ifro.png' %}" class="img-responsive"
+                                             width="30"></span>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+            <ul class="nav navbar-nav">
+                <li {% block class_home %} {% endblock %}><a href="{% url 'contratou.home' %}"><span
+                        class="glyphicon glyphicon-home"></span>
+                    Home</a></li>
+                <li{% block class_sobre %} {% endblock %}><a href="{% url 'contratou.sobre' %}"><span
+                        class="glyphicon glyphicon-question-sign"></span>
+                    Sobre</a></li>
+                <li{% block class_contato %} {% endblock %}><a href="{% url 'contratou.contato' %}"><span
+                        class="glyphicon glyphicon-envelope"></span>
+                    Contato</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'admin:login' %}" target="_blank"><span class="glyphicon glyphicon-log-in"></span>
+                    Login</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid" style="margin-top:50px">
+    <div class="row">
+        <div class="col-md-12">
+            {% block conteudo %} {% endblock %}
+        </div>
+    </div>
+</div>
+
+<footer>
+    IFRO - Instituto Federal de Educação, Ciência e Tecnologia de Rondônia
+</footer>
+
+</body>
+</html>
