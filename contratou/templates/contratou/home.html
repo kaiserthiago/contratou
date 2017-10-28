@@ -1,10 +1,13 @@
 {% extends "contratou/layout.html" %}
 {% block class_home %} class="active" {% endblock %}
 
+{% load static %}
+
 {% block conteudo %}
     <div class="row">
         <div class="col-md-12">
             <h2 class="page-header">Contratou! FACILITANDO A CONTRATAÇÃO DE SERVIÇOS</h2>
+            <img src="{% static 'img/logo_ifro - Copia.png' %}" class="img-responsive">
         </div>
     </div>
 {% endblock %}

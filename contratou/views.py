@@ -10,5 +10,8 @@ def contato(request):
     return render(request, 'contratou/contato.html', {})
 
 
+def profissionais(request):
+    return render(request, 'contratou/profissionais.html', {})
+
 def sobre(request):
     return render(request, 'contratou/sobre.html', {})
