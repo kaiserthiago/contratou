@@ -8,23 +8,26 @@
 {% load static %}
 
 {% block conteudo %}
-    <h2 class="page-header">Lista de profissionais</h2>
+    <h2 class="page-header">Detalhe do profissional</h2>
     {% for profissional in profissionais %}
         <div class="card">
             <img src="{{ profissional.foto.url }}" style="width:100%">
             <div class="container">
                 <h4><b>{{ profissional.nome }}</b></h4>
-                <ul>
-                    {% for area in profissional.area.all %}
-                        <li>{{ area }}</li>
-                    {% endfor %}
-                </ul>
+                {% for area in profissional.area.all %}
+                    <p>- {{ area }}</p>
+                {% endfor %}
+            <p>{{ profissional.cidade }}/{{ profissional.uf }}</p>
+                <p>{{ profissional.telefone }}</p>
                 <p>Reputação:
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span></p>
+                    <span class="fa fa-star"></span>
+                </p>
+
+
             </div>
         </div>
     {% endfor %}
