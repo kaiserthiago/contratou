@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a83908fc-303e-48ac-9ff3-31253b577f46" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contratou/templates/contratou/profissionais.html" afterPath="$PROJECT_DIR$/contratou/templates/contratou/profissionais.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contratou/templates/contratou/profissional_detalhe.html" afterPath="$PROJECT_DIR$/contratou/templates/contratou/profissional_detalhe.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -65,22 +66,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profissional_detalhe.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="profissional_detalhe.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/profissional_detalhe.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-              <folding />
+            <state relative-caret-position="25">
+              <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="profissionais.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="profissionais.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/profissionais.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="769">
-              <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-              <folding />
+            <state relative-caret-position="248">
+              <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -88,8 +93,8 @@
       <file leaf-file-name="layout.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/layout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="97" column="17" lean-forward="false" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
+            <state relative-caret-position="253">
+              <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="22" />
               <folding />
             </state>
           </provider>
@@ -133,8 +138,8 @@
         <option value="$PROJECT_DIR$/contratou/views.py" />
         <option value="$PROJECT_DIR$/contratou/urls.py" />
         <option value="$PROJECT_DIR$/static/css/layout.css" />
-        <option value="$PROJECT_DIR$/contratou/templates/contratou/profissionais.html" />
         <option value="$PROJECT_DIR$/contratou/templates/contratou/profissional_detalhe.html" />
+        <option value="$PROJECT_DIR$/contratou/templates/contratou/profissionais.html" />
       </list>
     </option>
   </component>
@@ -145,10 +150,9 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1048" />
+    <option name="x" value="952" />
+    <option name="width" value="976" />
+    <option name="height" value="1038" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -319,7 +323,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="350">
           <caret line="14" column="31" lean-forward="false" selection-start-line="14" selection-start-column="31" selection-end-line="14" selection-end-column="31" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -371,7 +377,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3925">
           <caret line="157" column="10" lean-forward="false" selection-start-line="157" selection-start-column="10" selection-end-line="157" selection-end-column="10" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -564,22 +572,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/static/css/layout.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
-          <caret line="97" column="17" lean-forward="false" selection-start-line="97" selection-start-column="17" selection-end-line="97" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/profissionais.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="769">
-          <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/layout.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="826">
@@ -588,11 +580,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/static/css/layout.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="91" column="22" lean-forward="true" selection-start-line="91" selection-start-column="4" selection-end-line="91" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/profissional_detalhe.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="15" column="32" lean-forward="false" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding />
+        <state relative-caret-position="25">
+          <caret line="13" column="8" lean-forward="false" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/profissionais.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="248">
+          <caret line="12" column="37" lean-forward="false" selection-start-line="12" selection-start-column="37" selection-end-line="12" selection-end-column="37" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -9,32 +9,73 @@
 
 {% block conteudo %}
     <h2 class="page-header">Lista de profissionais</h2>
-    {% for profissional in profissionais %}
-        <a href="{% url 'contratou.profissional_detalhe' profissional.id %}">
-            <div class="chip">
-                <img src="{{ profissional.foto.url }}" class="img-resposive">
-                <b>{{ profissional.nome }}</b><br>
-                {% if profissional.area.count > 1 %}
-                    Várias áreas<br>
-                    {#                Áreas:#}
-                    {#                {% for area in profissional.area.all %}#}
-                    {#                    {{ area }}#}
-                    {#                {% endfor %}#}
-                {% else %}
-                    {{ profissional.area.first }}<br>
-                {% endif %}
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
+
+    <table class="table table-striped">
+        <thead>
+
+        </thead>
+        <tbody>
+        {% for profissional in profissionais %}
+            <tr class='clickable-row'
+                data-href={% url 'contratou.profissional_detalhe' profissional.id %} style="cursor:pointer">
+                <td>
+                    <img src="{{ profissional.foto.url }}" class="img-resposive" style="width: 90px; border-radius: 10%">
+                </td>
+                <td>
+                    <h4><strong>{{ profissional.nome }}</strong></h4>
+                    {% if profissional.area.count > 1 %}
+                        <p>Várias áreas</p>
+                    {% else %}
+                        <p>{{ profissional.area.first }}</p>
+                    {% endif %}
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                </td>
+            </tr>
+
+        {% empty %}
+            <div class="container">
+                <h2 class="alert alert-warning text-center"> Sem profissionais cadastrados no momento!</h2>
             </div>
-        </a>
-    {% empty %}
-        <div class="container">
-            <h2 class="alert alert-warning text-center"> Sem profissionais cadastrados no momento!</h2>
-        </div>
-    {% endfor %}
+        {% endfor %}
+        </tbody>
+    </table>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
+    {#    {% for profissional in profissionais %}#}
+    {#        <a href="{% url 'contratou.profissional_detalhe' profissional.id %}">#}
+    {#            <div class="chip">#}
+    {#                <img src="{{ profissional.foto.url }}" class="img-resposive">#}
+    {#                <b>{{ profissional.nome }}</b><br>#}
+    {#                {% if profissional.area.count > 1 %}#}
+    {#                    Várias áreas<br>#}
+    {#                Áreas:#}
+    {#                {% for area in profissional.area.all %}#}
+    {#                    {{ area }}#}
+    {#                {% endfor %}#}
+    {#                {% else %}#}
+    {#                    {{ profissional.area.first }}<br>#}
+    {#                {% endif %}#}
+    {#                <span class="fa fa-star checked"></span>#}
+    {#                <span class="fa fa-star checked"></span>#}
+    {#                <span class="fa fa-star checked"></span>#}
+    {#                <span class="fa fa-star checked"></span>#}
+    {#                <span class="fa fa-star"></span>#}
+    {#            </div>#}
+    {#        </a>#}
+    {#    {% empty %}#}
+    {#        <div class="container">#}
+    {#            <h2 class="alert alert-warning text-center"> Sem profissionais cadastrados no momento!</h2>#}
+    {#        </div>#}
+    {#    {% endfor %}#}
 
     {##}
     {#    <div class="card">#}
