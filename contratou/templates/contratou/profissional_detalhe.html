@@ -8,60 +8,79 @@
 {% load static %}
 
 {% block conteudo %}
+<table class="table table-responsive">
+    <thead>
+    <th colspan="2"><h2>Detalhes do profissional</h2></th>
+    </thead>
+    <tbody>
     {% for profissional in profissionais %}
-        <h4 class="page-header"><strong>Detalhes do profissional</strong></h4>
-
-        <div class="col-md-6">
-            <img src="{{ profissional.foto.url }}" class="img-resposive"
-                 style="width:150px; margin-right: 10px">
-        </div>
-
-        <div class="col-md-6">
-            <h4><strong>{{ profissional.nome }}</strong></h4>
-            {% for area in profissional.area.all %}
-                <p>- {{ area }}</p>
-            {% endfor %}
-            <p>{{ profissional.cidade }}/{{ profissional.uf }}</p>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <h4 class="page-header"><strong>Avaliações - </strong>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </h4>
-                <p><strong>Serviço 01</strong></p>
-                <p class="p">Comentário do contratante sobre a execução do serviço.</p>
-                <hr>
-                <p><strong>Serviço 02</strong></p>
-                <p class="p">Comentário do contratante sobre a execução do serviço.</p>
-                <hr>
-            </div>
-        </div>
-
-        {#        <div class="card">#}
-        {#            <img src="{{ profissional.foto.url }}" class="img-resposive" style="width:100%">#}
-        {#            <div class="container">#}
-        {#                <h4><b>{{ profissional.nome }}</b></h4>#}
-        {#                {% for area in profissional.area.all %}#}
-        {#                    <p>- {{ area }}</p>#}
-        {#                {% endfor %}#}
-        {#            <p>{{ profissional.cidade }}/{{ profissional.uf }}</p>#}
-        {#                <p>{{ profissional.telefone }}</p>#}
-        {#                <p>Reputação:#}
-        {#                    <span class="fa fa-star checked"></span>#}
-        {#                    <span class="fa fa-star checked"></span>#}
-        {#                    <span class="fa fa-star checked"></span>#}
-        {#                    <span class="fa fa-star"></span>#}
-        {#                    <span class="fa fa-star"></span>#}
-        {#                </p>#}
-
-
-        </div>
-        </div>
+        <tr>
+            <td style="vertical-align:middle" width="150">
+                <img src="{{ profissional.foto.url }}" class="img-resposive"
+                     style="width:150px; margin-right: 10px">
+            </td>
+            <td style="vertical-align:middle">
+                <h4><strong>{{ profissional.nome }}</strong></h4>
+                {% for area in profissional.area.all %}
+                    <p>- {{ area }}</p>
+                {% endfor %}
+                <p>{{ profissional.cidade }}/{{ profissional.uf }}</p>
+            </td>
+        </tr>
     {% endfor %}
+    </tbody>
+</table>
+
+<table class="table table-striped">
+    <thead>
+    <th>
+        <h2><h4><strong>Avaliações - </strong>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+        </h4></h2>
+    </th>
+    </thead>
+    <tbody>
+    <tr>
+        <td style="vertical-align:middle">
+            <p><strong>Serviço 01</strong></p>
+            <p class="p">Comentário do contratante sobre a execução do serviço.</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:middle">
+            <p><strong>Serviço 02</strong></p>
+            <p class="p">Comentário do contratante sobre a execução do serviço.</p>
+        </td>
+    </tr>
+    <tr>
+        <td style="vertical-align:middle">
+            <p><strong>Serviço 03</strong></p>
+            <p class="p">Comentário do contratante sobre a execução do serviço.</p>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+
+{#        <div class="card">#}
+{#            <img src="{{ profissional.foto.url }}" class="img-resposive" style="width:100%">#}
+{#            <div class="container">#}
+{#                <h4><b>{{ profissional.nome }}</b></h4>#}
+{#                {% for area in profissional.area.all %}#}
+{#                    <p>- {{ area }}</p>#}
+{#                {% endfor %}#}
+{#            <p>{{ profissional.cidade }}/{{ profissional.uf }}</p>#}
+{#                <p>{{ profissional.telefone }}</p>#}
+{#                <p>Reputação:#}
+{#                    <span class="fa fa-star checked"></span>#}
+{#                    <span class="fa fa-star checked"></span>#}
+{#                    <span class="fa fa-star checked"></span>#}
+{#                    <span class="fa fa-star"></span>#}
+{#                    <span class="fa fa-star"></span>#}
+{#                </p>#}
 {% endblock %}
 
