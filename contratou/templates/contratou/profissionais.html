@@ -24,16 +24,19 @@
                 </td>
                 <td style="vertical-align:middle">
                     <h4><strong>{{ profissional.nome }}</strong></h4>
+                <p><span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span></p>
                     {% if profissional.area.count > 1 %}
-                        <p>Várias áreas</p>
+                        {% for area in profissional.area.all %}
+                    <p>- {{ area }}</p>
+                {% endfor %}
                     {% else %}
-                        <p>{{ profissional.area.first }}</p>
+                        <p>- {{ profissional.area.first }}</p>
                     {% endif %}
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
+
                 </td>
             </tr>
 
