@@ -21,5 +21,13 @@ def profissionais(request):
     }
     return render(request, 'contratou/profissionais.html', context)
 
+def profissional_detalhe(request, profissional_id):
+    profissionais = Profissional.objects.filter(pk=profissional_id)
+
+    context = {
+        'profissionais': profissionais,
+    }
+    return render(request, 'contratou/profissional_detalhe.html', context)
+
 def sobre(request):
     return render(request, 'contratou/sobre.html', {})

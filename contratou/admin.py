@@ -18,8 +18,8 @@ class SegmentoAdmin(admin.ModelAdmin):
     list_filter = ['descricao',]
 
 class AreaAdmin(admin.ModelAdmin):
-    list_display = ('segmento', 'descricao')
-    list_filter = ['segmento', 'descricao']
+    list_display = ('descricao', 'segmento')
+    list_filter = ['descricao', 'segmento']
 
 admin.site.register(Profissional, ProfissionalAdmin)
 admin.site.register(Contratante, ContratanteAdmin)

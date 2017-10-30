@@ -1,0 +1,32 @@
+{% extends "contratou/layout.html" %}
+{% block class_profissionais %} class="active" {% endblock %}
+
+{% block link_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% load static %}
+
+{% block conteudo %}
+    <h2 class="page-header">Lista de profissionais</h2>
+    {% for profissional in profissionais %}
+        <div class="card">
+            <img src="{{ profissional.foto.url }}" style="width:100%">
+            <div class="container">
+                <h4><b>{{ profissional.nome }}</b></h4>
+                <ul>
+                    {% for area in profissional.area.all %}
+                        <li>{{ area }}</li>
+                    {% endfor %}
+                </ul>
+                <p>Reputação:
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star checked"></span>
+                    <span class="fa fa-star"></span>
+                    <span class="fa fa-star"></span></p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
