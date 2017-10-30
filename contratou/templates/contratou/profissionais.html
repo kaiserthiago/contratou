@@ -18,10 +18,10 @@
         {% for profissional in profissionais %}
             <tr class='clickable-row'
                 data-href={% url 'contratou.profissional_detalhe' profissional.id %} style="cursor:pointer">
-                <td>
+                <td style="vertical-align:middle">
                     <img src="{{ profissional.foto.url }}" class="img-resposive" style="width: 90px; border-radius: 10%">
                 </td>
-                <td>
+                <td style="vertical-align:middle">
                     <h4><strong>{{ profissional.nome }}</strong></h4>
                     {% if profissional.area.count > 1 %}
                         <p>Várias áreas</p>
