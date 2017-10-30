@@ -8,27 +8,79 @@
 {% load static %}
 
 {% block conteudo %}
-    <h2 class="page-header">Detalhe do profissional</h2>
     {% for profissional in profissionais %}
-        <div class="card">
-            <img src="{{ profissional.foto.url }}" class="img-resposive" style="width:100%">
-            <div class="container">
-                <h4><b>{{ profissional.nome }}</b></h4>
-                {% for area in profissional.area.all %}
-                    <p>- {{ area }}</p>
-                {% endfor %}
-            <p>{{ profissional.cidade }}/{{ profissional.uf }}</p>
-                <p>{{ profissional.telefone }}</p>
-                <p>Reputação:
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </p>
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                <th>
+                    <h4><strong>Detalhes do profissional</strong></h4>
+                </th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <img src="{{ profissional.foto.url }}" class="img-resposive"
+                             style="width:200px; margin-right: 10px">
+                    </td>
+                    <td>
+                        <h4><strong>{{ profissional.nome }}</strong></h4>
+                        {% for area in profissional.area.all %}
+                            <p>- {{ area }}</p>
+                        {% endfor %}
+                        <p>{{ profissional.cidade }}/{{ profissional.uf }}</p>
+                        <p>{{ profissional.telefone }}</p>
+                        <p>Reputação:
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </p>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <table class="table">
+                <thead>
+                <th>
+                    <h4><strong>Serviços executados</strong></h4>
+                </th>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>
+                        <ul>
+                            <li>Serviço 01</li>
+                            <li>Serviço 02</li>
+                            <li>Serviço 03</li>
+                            <li>Serviço 04</li>
+                        </ul>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        {#        <div class="card">#}
+        {#            <img src="{{ profissional.foto.url }}" class="img-resposive" style="width:100%">#}
+        {#            <div class="container">#}
+        {#                <h4><b>{{ profissional.nome }}</b></h4>#}
+        {#                {% for area in profissional.area.all %}#}
+        {#                    <p>- {{ area }}</p>#}
+        {#                {% endfor %}#}
+        {#            <p>{{ profissional.cidade }}/{{ profissional.uf }}</p>#}
+        {#                <p>{{ profissional.telefone }}</p>#}
+        {#                <p>Reputação:#}
+        {#                    <span class="fa fa-star checked"></span>#}
+        {#                    <span class="fa fa-star checked"></span>#}
+        {#                    <span class="fa fa-star checked"></span>#}
+        {#                    <span class="fa fa-star"></span>#}
+        {#                    <span class="fa fa-star"></span>#}
+        {#                </p>#}
 
 
-            </div>
+        </div>
         </div>
     {% endfor %}
 {% endblock %}
