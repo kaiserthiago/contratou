@@ -12,8 +12,7 @@
 
     <table class="table table-striped">
         <thead>
-            <th><h2>Lista de profissionais</h2></th>
-            <th></th>
+            <th colspan="2"><h2>Profissionais</h2></th>
         </thead>
         <tbody>
         {% for profissional in profissionais %}
@@ -21,7 +20,7 @@
                 data-href={% url 'contratou.profissional_detalhe' profissional.id %} style="cursor:pointer">
                 <td style="vertical-align:middle">
                     <img src="{{ profissional.foto.url }}" class="img-resposive"
-                         style="width: 90px; border-radius: 10%">
+                         style="width:90px; border-radius: 10%">
                 </td>
                 <td style="vertical-align:middle">
                     <h4><strong>{{ profissional.nome }}</strong></h4>
