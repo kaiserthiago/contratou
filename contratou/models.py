@@ -65,7 +65,7 @@ class Profissional(models.Model):
     cep = models.CharField(max_length=10, blank=True, null=True)
     email = models.CharField(max_length=150, blank=True, null=True)
     telefone = models.CharField(max_length=15)
-    foto = models.ImageField(upload_to='img_profissional', blank=True, null=True)
+    foto = models.ImageField(upload_to='img_profissional', blank=False, null=False)
     area = models.ManyToManyField(Area)
 
     class Meta:

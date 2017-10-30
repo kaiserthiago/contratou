@@ -13,7 +13,15 @@
         <div class="chip">
             <img src="{{ profissional.foto.url }}">
             <b>{{ profissional.nome }}</b><br>
-            Áreas: {{ profissional.area.count }}<br>
+            {% if profissional.area.count > 1 %}
+                Várias áreas<br>
+                {#                Áreas:#}
+                {#                {% for area in profissional.area.all %}#}
+                {#                    {{ area }}#}
+                {#                {% endfor %}#}
+            {% else %}
+                {{ profissional.area.first }}<br>
+            {% endif %}
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
