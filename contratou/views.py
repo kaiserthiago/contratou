@@ -2,6 +2,9 @@ from django.shortcuts import render
 
 
 # Create your views here.
+from contratou.models import Profissional
+
+
 def home(request):
     return render(request, 'contratou/home.html', {})
 
@@ -11,7 +14,12 @@ def contato(request):
 
 
 def profissionais(request):
-    return render(request, 'contratou/profissionais.html', {})
+    profissionais = Profissional.objects.all()
+
+    context = {
+        'profissionais': profissionais,
+    }
+    return render(request, 'contratou/profissionais.html', context)
 
 def sobre(request):
     return render(request, 'contratou/sobre.html', {})

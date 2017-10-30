@@ -9,70 +9,23 @@
 
 {% block conteudo %}
     <h2 class="page-header">Lista de profissionais</h2>
-    <div class="chip">
-        <img src="{% static 'img/img_avatar.png' %}" alt="Avatar">
-        <b>Nome Profissional</b><br>
-        Área de atuação<br>
+    {% for profissional in profissionais %}
+        <div class="chip">
+            <img src="{{ profissional.foto.url }}">
+            <b>{{ profissional.nome }}</b><br>
+            Áreas: {{ profissional.area.count }}<br>
             <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-    </div>
-    <div class="chip">
-        <img src="{% static 'img/img_avatar.png' %}" alt="Avatar">
-        <b>Nome Profissional</b><br>
-        Área de atuação<br>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star checked"></span>
             <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-    </div>
+        </div>
+    {% empty %}
+        <div class="container">
+            <h2 class="alert alert-warning text-center"> Sem profissionais cadastrados no momento!</h2>
+        </div>
+    {% endfor %}
 
-    <div class="chip">
-        <img src="{% static 'img/img_avatar.png' %}" alt="Avatar">
-        <b>Nome Profissional</b><br>
-        Área de atuação<br>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-    </div>
-
-    <div class="chip">
-        <img src="{% static 'img/img_avatar.png' %}" alt="Avatar">
-        <b>Nome Profissional</b><br>
-        Área de atuação<br>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-    </div>
-
-    <div class="chip">
-        <img src="{% static 'img/img_avatar.png' %}" alt="Avatar">
-        <b>Nome Profissional</b><br>
-        Área de atuação<br>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-    </div>
-
-    <div class="chip">
-        <img src="{% static 'img/img_avatar.png' %}" alt="Avatar">
-        <b>Nome Profissional</b><br>
-        Área de atuação<br>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-    </div>
     {##}
     {#    <div class="card">#}
     {#        <img src="{% static 'img/img_avatar2.png' %}" alt="Avatar" style="width:100%">#}
