@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a83908fc-303e-48ac-9ff3-31253b577f46" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contratou/templates/contratou/profissional_detalhe.html" afterPath="$PROJECT_DIR$/contratou/templates/contratou/profissional_detalhe.html" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -68,8 +69,8 @@
       <file leaf-file-name="profissional_detalhe.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/profissional_detalhe.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="275">
-              <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+            <state relative-caret-position="426">
+              <caret line="57" column="78" lean-forward="false" selection-start-line="57" selection-start-column="78" selection-end-line="57" selection-end-column="78" />
               <folding>
                 <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
@@ -612,8 +613,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/profissional_detalhe.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="11" column="6" lean-forward="false" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        <state relative-caret-position="426">
+          <caret line="57" column="78" lean-forward="false" selection-start-line="57" selection-start-column="78" selection-end-line="57" selection-end-column="78" />
           <folding>
             <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#img#0;n#td#0;n#tr#0;n#table#0;n#!!top" expanded="true" />

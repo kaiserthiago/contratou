@@ -8,12 +8,12 @@
 {% load static %}
 
 {% block conteudo %}
-<table class="table table-responsive">
+<table class="table">
     {% for profissional in profissionais %}
         <tr>
-            <td style="vertical-align:middle" width="150">
+            <td style="vertical-align:middle">
                 <img src="{{ profissional.foto.url }}" class="img-resposive"
-                     style="width:150px; margin-right: 10px">
+                     style="width:100px; margin-right: 10px">
             </td>
             <td style="vertical-align:middle">
                 <h4><strong>{{ profissional.nome }}</strong></h4>
@@ -43,19 +43,19 @@
     <tr>
         <td style="vertical-align:middle">
             <p><strong>Serviço 01</strong></p>
-            <p class="p">Comentário do contratante sobre a execução do serviço.</p>
+            <p><em>Comentário do contratante sobre a execução do serviço.</em></p>
         </td>
     </tr>
     <tr>
         <td style="vertical-align:middle">
             <p><strong>Serviço 02</strong></p>
-            <p class="p">Comentário do contratante sobre a execução do serviço.</p>
+            <p><em>Comentário do contratante sobre a execução do serviço.</em></p>
         </td>
     </tr>
     <tr>
         <td style="vertical-align:middle">
             <p><strong>Serviço 03</strong></p>
-            <p class="p">Comentário do contratante sobre a execução do serviço.</p>
+            <p><em>Comentário do contratante sobre a execução do serviço.</em></p>
         </td>
     </tr>
     </tbody>
