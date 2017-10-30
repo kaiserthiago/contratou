@@ -12,7 +12,7 @@
     {% for profissional in profissionais %}
         <a href="{% url 'contratou.profissional_detalhe' profissional.id %}">
             <div class="chip">
-                <img src="{{ profissional.foto.url }}">
+                <img src="{{ profissional.foto.url }}" class="img-resposive">
                 <b>{{ profissional.nome }}</b><br>
                 {% if profissional.area.count > 1 %}
                     Várias áreas<br>
