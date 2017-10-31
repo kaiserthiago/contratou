@@ -49,7 +49,7 @@
             </ul>
             {% if request.user.is_authenticated %}
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="{% url 'contratou.logout' %}"><span
+                    <li><a data-toggle="modal" href="#modal-logout"><span
                             class="glyphicon glyphicon-log-out"></span>
                         Logout</a></li>
                 </ul>
@@ -85,7 +85,7 @@
 {#    {% endif %}#}
 {#    {% include 'contratou/login_include.html' %}#}
 {#{% endif %}#}
-<!-- Modal -->
+<!-- Modal LOGIN-->
 <div class="modal fade" id="modal-login" role="dialog">
     <div class="modal-dialog">
 
@@ -121,6 +121,41 @@
                     <p class="pull-right">Esqueceu <a href="#">senha?</a></p>
                 </div>
                 {#                <input type="hidden" name="next" value="" />#}
+            </form>
+        </div>
+    </div>
+</div>
+
+<!-- Modal LOGOUT-->
+<div class="modal fade" id="modal-logout" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form method="POST" action="{% url 'contratou.logout' %}" class="post-form">
+                {% csrf_token %}
+
+                <div class="modal-header" style="padding:15px 50px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title"><span class="glyphicon glyphicon-off"></span> Logout</h3>
+                </div>
+
+                <div class="modal-body" style="padding:10px 10px;">
+                    <p class="text-center">Deseja realmente sair?</p>
+                </div>
+
+                <div class="modal-footer">
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-default btn-block" data-dismiss="modal" autofocus/>
+                        Cancelar</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-danger btn-block">Sair</button>
+                    </div>
+                </div>
+
             </form>
         </div>
     </div>
