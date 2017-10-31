@@ -1,0 +1,46 @@
+<div class="container">
+    <h2 class="alert alert-warning text-center"> Você está tentando acessar uma página restrita!</h2>
+    <p class="text-center">Faça <a data-toggle="modal" href="#modal-login">login</a> para continuar ou <a
+            href="{% url 'contratou.home' %}">clique aqui</a> para voltar.</p>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal-login" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <form method="POST" action="{% url 'contratou.login' %}?next={{ request.path }}" class="post-form">
+                {% csrf_token %}
+
+                <div class="modal-header" style="padding:20px 50px;">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h3 class="modal-title"><span class="glyphicon glyphicon-lock"></span> Login</h3>
+                </div>
+
+                <div class="modal-body" style="padding:40px 50px;">
+
+                    <div class="form-group">
+                        <input class="form-control" type="text" name="nomeusuario" placeholder="Usuário"><br>
+                        <input class="form-control" type="password" name="senha" placeholder="Senha">
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-success btn-block"> Entrar</button>
+                    </div>
+                    <div class="col-sm-6">
+                        <button type="submit" class="btn btn-danger btn-block" data-dismiss="modal">
+                            Cancelar
+                        </button>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <p class="pull-right">Esqueceu <a href="#">senha?</a></p>
+                </div>
+{#                <input type="hidden" name="next" value="" />#}
+            </form>
+        </div>
+    </div>
+</div>

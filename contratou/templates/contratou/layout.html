@@ -66,6 +66,15 @@
 <footer>
     IFRO - Instituto Federal de Educação, Ciência e Tecnologia de Rondônia
 </footer>
-
+{#{% if request.user.is_authenticated %}#}
+{##}
+{#{% else %}#}
+{#    {% if erro %}#}
+{#        <p class="alert alert-danger">#}
+{#            Usuário ou senha inválidos!#}
+{#        </p>#}
+{#    {% endif %}#}
+{#    {% include 'contratou/login_include.html' %}#}
+{#{% endif %}#}
 </body>
 </html>
