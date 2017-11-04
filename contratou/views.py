@@ -38,8 +38,9 @@ def avaliacao_profissional(request):
             post = AvaliacaoProfissional()
 
             post.profissional = form.cleaned_data['profissional']
-            post.contratante = form.cleaned_data['contratante']
+            post.contratante = request.user
             post.servico = form.cleaned_data['servico']
+            post.data_servico = form.cleaned_data['data_servico']
             post.comentario = form.cleaned_data['comentario']
             post.campo1 = form.cleaned_data['campo1']
             post.campo2 = form.cleaned_data['campo2']
@@ -74,7 +75,7 @@ def profissionais(request):
 
 def profissional_detalhe(request, profissional_id):
     profissionais = Profissional.objects.filter(pk=profissional_id)
-    avaliacao = AvaliacaoProfissional.objects.filter(servico__profissional_id=profissional_id)
+    avaliacao = AvaliacaoProfissional.objects.filter(profissional=profissional_id)
 
     context = {
         'profissionais': profissionais,

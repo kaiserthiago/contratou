@@ -1,8 +1,11 @@
 from django.contrib import admin
 
 # Register your models here.
+from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.models import User
+
 from contratou.models import Profissional, Contratante, Segmento, Area, Servico, AvaliacaoProfissional, \
-    AvaliacaoContratante
+    AvaliacaoContratante, UserProfile
 
 
 class AvaliacaoContratanteAdmin(admin.ModelAdmin):
@@ -40,6 +43,16 @@ class ServicoAdmin(admin.ModelAdmin):
     list_filter = ['profissional', 'contratante']
 
 
+class UserProfileInline(admin.StackedInline):
+    model = UserProfile
+    can_delete = False
+
+class UserAdmin(UserAdmin):
+    inlines = (UserProfileInline, )
+
+
+admin.site.unregister(User)
+admin.site.register(User, UserAdmin)
 admin.site.register(Profissional, ProfissionalAdmin)
 admin.site.register(Contratante, ContratanteAdmin)
 admin.site.register(Segmento, SegmentoAdmin)

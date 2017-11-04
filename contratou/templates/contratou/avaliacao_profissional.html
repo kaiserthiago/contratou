@@ -3,137 +3,139 @@
 {% block titulo %} Contratou! - Avaliação Profissional {% endblock %}
 
 {% block conteudo %}
-    <h2 class="page-header">Avaliação do Profissional</h2>
-    <form action="" method="POST" class="post-form">
-        {% csrf_token %}
+    {% if request.user.is_authenticated %}
+        <h2 class="page-header">Avaliação do Profissional</h2>
+        <form action="" method="POST" class="post-form">
+            {% csrf_token %}
+            <div class="form-group">
+{#                {{ form.as_p }}#}
+                <strong>Profissional contratado</strong>
+                {{ form.profissional }}
+                <strong>Serviço executado</strong>
+                {{ form.servico }}
+                <strong>Data execução</strong>
+                {{ form.data_servico }}
+                <strong>Comentários</strong>
+                {{ form.comentario }}
+                <div class="row">
+                    <div class="col-md-2">
+                        <h4>Critério 1</h4>
+                        <div class="estrelas">
+                            <input type="radio" id="criterio1_vazio" name="campo1" value="" checked>
 
-{#        {% for field in form %}#}
-{#            <div class="form-group">#}
-{#                {{ field.label }}{{ field }}#}
-{#            </div>#}
-{#        {% endfor %}#}
+                            <label for="criterio1_estrela_um"><i class="fa"></i></label>
+                            <input type="radio" id="criterio1_estrela_um" name="campo1" value="1">
 
-        <strong>Profissional contrato</strong>
-        {{ form.profissional }}
-        <strong>Contratante</strong>
-        {{ form.contratante }}
-        <strong>Serviço executado</strong>
-        {{ form.servico }}
-        <strong>Comentários</strong>
-        {{ form.comentario }}
-        <div class="row">
-            <div class="col-md-2">
-                {#                <form method="POST" action="{% url 'contratou.avaliacao_profissional' %}">#}
-                {#                    {% csrf_token %}#}
-                <h4>Critério 1</h4>
-                <div class="estrelas">
-                    <input type="radio" id="criterio1_vazio" name="campo1" value="" checked>
+                            <label for="criterio1_estrela_dois"><i class="fa"></i></label>
+                            <input type="radio" id="criterio1_estrela_dois" name="campo1" value="2">
 
-                    <label for="criterio1_estrela_um"><i class="fa"></i></label>
-                    <input type="radio" id="criterio1_estrela_um" name="campo1" value="1">
+                            <label for="criterio1_estrela_tres"><i class="fa"></i></label>
+                            <input type="radio" id="criterio1_estrela_tres" name="campo1" value="3">
 
-                    <label for="criterio1_estrela_dois"><i class="fa"></i></label>
-                    <input type="radio" id="criterio1_estrela_dois" name="campo1" value="2">
+                            <label for="criterio1_estrela_quatro"><i class="fa"></i></label>
+                            <input type="radio" id="criterio1_estrela_quatro" name="campo1" value="4">
 
-                    <label for="criterio1_estrela_tres"><i class="fa"></i></label>
-                    <input type="radio" id="criterio1_estrela_tres" name="campo1" value="3">
+                            <label for="criterio1_estrela_cinco"><i class="fa"></i></label>
+                            <input type="radio" id="criterio1_estrela_cinco" name="campo1" value="5">
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <h4>Critério 2</h4>
+                        <div class="estrelas">
+                            <input type="radio" id="criterio2_vazio" name="campo2" value="" checked>
 
-                    <label for="criterio1_estrela_quatro"><i class="fa"></i></label>
-                    <input type="radio" id="criterio1_estrela_quatro" name="campo1" value="4">
+                            <label for="criterio2_estrela_um"><i class="fa"></i></label>
+                            <input type="radio" id="criterio2_estrela_um" name="campo2" value="1">
 
-                    <label for="criterio1_estrela_cinco"><i class="fa"></i></label>
-                    <input type="radio" id="criterio1_estrela_cinco" name="campo1" value="5">
+                            <label for="criterio2_estrela_dois"><i class="fa"></i></label>
+                            <input type="radio" id="criterio2_estrela_dois" name="campo2" value="2">
+
+                            <label for="criterio2_estrela_tres"><i class="fa"></i></label>
+                            <input type="radio" id="criterio2_estrela_tres" name="campo2" value="3">
+
+                            <label for="criterio2_estrela_quatro"><i class="fa"></i></label>
+                            <input type="radio" id="criterio2_estrela_quatro" name="campo2" value="4">
+
+                            <label for="criterio2_estrela_cinco"><i class="fa"></i></label>
+                            <input type="radio" id="criterio2_estrela_cinco" name="campo2" value="5">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h4>Critério 3</h4>
+                        <div class="estrelas">
+                            <input type="radio" id="criterio3_vazio" name="campo3" value="" checked>
+
+                            <label for="criterio3_estrela_um"><i class="fa"></i></label>
+                            <input type="radio" id="criterio3_estrela_um" name="campo3" value="1">
+
+                            <label for="criterio3_estrela_dois"><i class="fa"></i></label>
+                            <input type="radio" id="criterio3_estrela_dois" name="campo3" value="2">
+
+                            <label for="criterio3_estrela_tres"><i class="fa"></i></label>
+                            <input type="radio" id="criterio3_estrela_tres" name="campo3" value="3">
+
+                            <label for="criterio3_estrela_quatro"><i class="fa"></i></label>
+                            <input type="radio" id="criterio3_estrela_quatro" name="campo3" value="4">
+
+                            <label for="criterio3_estrela_cinco"><i class="fa"></i></label>
+                            <input type="radio" id="criterio3_estrela_cinco" name="campo3" value="5">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h4>Critério 4</h4>
+                        <div class="estrelas">
+                            <input type="radio" id="criterio4_vazio" name="campo4" value="" checked>
+
+                            <label for="criterio4_estrela_um"><i class="fa"></i></label>
+                            <input type="radio" id="criterio4_estrela_um" name="campo4" value="1">
+
+                            <label for="criterio4_estrela_dois"><i class="fa"></i></label>
+                            <input type="radio" id="criterio4_estrela_dois" name="campo4" value="2">
+
+                            <label for="criterio4_estrela_tres"><i class="fa"></i></label>
+                            <input type="radio" id="criterio4_estrela_tres" name="campo4" value="3">
+
+                            <label for="criterio4_estrela_quatro"><i class="fa"></i></label>
+                            <input type="radio" id="criterio4_estrela_quatro" name="campo4" value="4">
+
+                            <label for="criterio4_estrela_cinco"><i class="fa"></i></label>
+                            <input type="radio" id="criterio4_estrela_cinco" name="campo4" value="5">
+                        </div>
+                    </div>
+
+                    <div class="col-md-2">
+                        <h4>Critério 5</h4>
+                        <div class="estrelas">
+                            <input type="radio" id="criterio5_vazio" name="campo5" value="" checked>
+
+                            <label for="criterio5_estrela_um"><i class="fa"></i></label>
+                            <input type="radio" id="criterio5_estrela_um" name="campo5" value="1">
+
+                            <label for="criterio5_estrela_dois"><i class="fa"></i></label>
+                            <input type="radio" id="criterio5_estrela_dois" name="campo5" value="2">
+
+                            <label for="criterio5_estrela_tres"><i class="fa"></i></label>
+                            <input type="radio" id="criterio5_estrela_tres" name="campo5" value="3">
+
+                            <label for="criterio5_estrela_quatro"><i class="fa"></i></label>
+                            <input type="radio" id="criterio5_estrela_quatro" name="campo5" value="4">
+
+                            <label for="criterio5_estrela_cinco"><i class="fa"></i></label>
+                            <input type="radio" id="criterio5_estrela_cinco" name="campo5" value="5">
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-2">
-                <h4>Critério 2</h4>
-                <div class="estrelas">
-                    <input type="radio" id="criterio2_vazio" name="campo2" value="" checked>
-
-                    <label for="criterio2_estrela_um"><i class="fa"></i></label>
-                    <input type="radio" id="criterio2_estrela_um" name="campo2" value="1">
-
-                    <label for="criterio2_estrela_dois"><i class="fa"></i></label>
-                    <input type="radio" id="criterio2_estrela_dois" name="campo2" value="2">
-
-                    <label for="criterio2_estrela_tres"><i class="fa"></i></label>
-                    <input type="radio" id="criterio2_estrela_tres" name="campo2" value="3">
-
-                    <label for="criterio2_estrela_quatro"><i class="fa"></i></label>
-                    <input type="radio" id="criterio2_estrela_quatro" name="campo2" value="4">
-
-                    <label for="criterio2_estrela_cinco"><i class="fa"></i></label>
-                    <input type="radio" id="criterio2_estrela_cinco" name="campo2" value="5">
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <h4>Critério 3</h4>
-                <div class="estrelas">
-                    <input type="radio" id="criterio3_vazio" name="campo3" value="" checked>
-
-                    <label for="criterio3_estrela_um"><i class="fa"></i></label>
-                    <input type="radio" id="criterio3_estrela_um" name="campo3" value="1">
-
-                    <label for="criterio3_estrela_dois"><i class="fa"></i></label>
-                    <input type="radio" id="criterio3_estrela_dois" name="campo3" value="2">
-
-                    <label for="criterio3_estrela_tres"><i class="fa"></i></label>
-                    <input type="radio" id="criterio3_estrela_tres" name="campo3" value="3">
-
-                    <label for="criterio3_estrela_quatro"><i class="fa"></i></label>
-                    <input type="radio" id="criterio3_estrela_quatro" name="campo3" value="4">
-
-                    <label for="criterio3_estrela_cinco"><i class="fa"></i></label>
-                    <input type="radio" id="criterio3_estrela_cinco" name="campo3" value="5">
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <h4>Critério 4</h4>
-                <div class="estrelas">
-                    <input type="radio" id="criterio4_vazio" name="campo4" value="" checked>
-
-                    <label for="criterio4_estrela_um"><i class="fa"></i></label>
-                    <input type="radio" id="criterio4_estrela_um" name="campo4" value="1">
-
-                    <label for="criterio4_estrela_dois"><i class="fa"></i></label>
-                    <input type="radio" id="criterio4_estrela_dois" name="campo4" value="2">
-
-                    <label for="criterio4_estrela_tres"><i class="fa"></i></label>
-                    <input type="radio" id="criterio4_estrela_tres" name="campo4" value="3">
-
-                    <label for="criterio4_estrela_quatro"><i class="fa"></i></label>
-                    <input type="radio" id="criterio4_estrela_quatro" name="campo4" value="4">
-
-                    <label for="criterio4_estrela_cinco"><i class="fa"></i></label>
-                    <input type="radio" id="criterio4_estrela_cinco" name="campo4" value="5">
-                </div>
-            </div>
-
-            <div class="col-md-2">
-                <h4>Critério 5</h4>
-                <div class="estrelas">
-                    <input type="radio" id="criterio5_vazio" name="campo5" value="" checked>
-
-                    <label for="criterio5_estrela_um"><i class="fa"></i></label>
-                    <input type="radio" id="criterio5_estrela_um" name="campo5" value="1">
-
-                    <label for="criterio5_estrela_dois"><i class="fa"></i></label>
-                    <input type="radio" id="criterio5_estrela_dois" name="campo5" value="2">
-
-                    <label for="criterio5_estrela_tres"><i class="fa"></i></label>
-                    <input type="radio" id="criterio5_estrela_tres" name="campo5" value="3">
-
-                    <label for="criterio5_estrela_quatro"><i class="fa"></i></label>
-                    <input type="radio" id="criterio5_estrela_quatro" name="campo5" value="4">
-
-                    <label for="criterio5_estrela_cinco"><i class="fa"></i></label>
-                    <input type="radio" id="criterio5_estrela_cinco" name="campo5" value="5">
-                </div>
-            </div>
-        </div>
-        <input type="submit" class="btn btn-success" value="Avaliar">
-    </form>
-
+            <input type="submit" class="btn btn-success" value="Avaliar">
+        </form>
+    {% else %}
+        {% if erro %}
+            <p class="alert alert-danger">
+                Usuário ou senha inválidos!
+            </p>
+        {% endif %}
+        {% include 'contratou/login_include.html' %}
+    {% endif %}
 {% endblock %}

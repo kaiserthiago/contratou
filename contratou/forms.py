@@ -70,7 +70,7 @@ class FormAvaliacaoProfissional(ModelForm):
 
     class Meta:
         model = AvaliacaoProfissional
-        fields = ['profissional', 'contratante', 'servico', 'comentario', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5']
+        fields = ['profissional', 'servico', 'data_servico', 'comentario', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5']
 
 class FormAvaliacaoContratante(ModelForm):
     def __init__(self, *args, **kwargs):

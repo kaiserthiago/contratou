@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 
@@ -142,8 +143,9 @@ class Servico(models.Model):
 
 class AvaliacaoProfissional(models.Model):
     profissional = models.ForeignKey(Profissional)
-    contratante = models.ForeignKey(Contratante)
-    servico = models.ForeignKey(Servico)
+    contratante = models.ForeignKey(User)
+    servico = models.CharField(max_length=255)
+    data_servico = models.DateField(auto_now_add=False)
     campo1 = models.IntegerField()
     campo2 = models.IntegerField()
     campo3 = models.IntegerField()
@@ -169,3 +171,10 @@ class AvaliacaoContratante(models.Model):
     class Meta:
         verbose_name_plural = 'Avaliação Contratantes'
         ordering = ['contratante', 'profissional']
+
+class UserProfile(models.Model):
+    usuario = models.OneToOneField(User, unique=True)
+    endereco = models.CharField(max_length=255, null=True, blank=True)
+    cidade = models.CharField(max_length=150, null=True, blank=True)
+    estado = models.CharField(max_length=2, null=True, blank=True)
+    pais = models.CharField(max_length=2, null=True, blank=True)

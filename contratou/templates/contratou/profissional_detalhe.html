@@ -49,7 +49,7 @@
             {% for avalia in avaliacao %}
                 <tr>
                     <td style="vertical-align:middle">
-                        <p><strong>{{ avalia.servico.descricao }}</strong> - <em>{{ avalia.servico.data }}</em></p>
+                        <p><strong>{{ avalia.servico }}</strong> - <em>{{ avalia.data_servico }}</em> (Avaliado por: {{ avalia.contratante }})</p>
                         <p>{{ avalia.comentario }}</p>
                     </td>
                     <td>
