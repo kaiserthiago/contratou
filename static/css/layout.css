@@ -1,3 +1,16 @@
+.estrelas input[type=radio] {
+    display: none;
+}
+
+.estrelas label i.fa:before {
+    content: '\f005';
+    color: #FC0;
+}
+
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+    color: #CCC;
+}
+
 /*Remove a margem padrão de baixo da navbar e as bordas arredondadas*/
 .navbar {
     margin-bottom: 0;
@@ -74,14 +87,14 @@ h4 {
 
 .chip {
     display: table-cell;
-    padding: 0 25px ;
+    padding: 0 25px;
     height: 100px;
     font-size: 16px;
     line-height: 33px;
     border-radius: 20px;
     background-color: #f1f1f1;
     float: left;
-    margin:2px;
+    margin: 2px;
 }
 
 .chip img {
@@ -122,7 +135,7 @@ h4 {
 footer {
     background-color: #195128;
     color: white;
-    padding: 20px 0px 20px 0px;
+    padding: 10px;
     font-size: 8pt;
     font-weight: bold;
     text-align: center;

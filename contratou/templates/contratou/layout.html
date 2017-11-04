@@ -6,6 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
     {% load static %}
     <link rel="stylesheet" href="{% static '/css/layout.css' %}">
@@ -44,6 +45,9 @@
                 <li{% block class_contato %} {% endblock %}><a href="{% url 'contratou.contato' %}"><span
                         class="glyphicon glyphicon-envelope"></span>
                     Contato</a></li>
+             <li{% block class_avalia_prof %} {% endblock %}><a href="{% url 'contratou.avaliacao_profissional' %}"><span
+                        class="glyphicon glyphicon-pencil"></span>
+                    Avaliação Profissional</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
             </ul>

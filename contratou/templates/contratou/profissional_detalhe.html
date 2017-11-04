@@ -17,7 +17,14 @@
                              style="width:150px; margin-right: 10px; border-radius: 10%">
                     </td>
                     <td style="vertical-align:middle">
-                        <h4><strong>{{ profissional.nome }}</strong></h4>
+                        <h4>
+                            <strong>{{ profissional.nome }}</strong>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star checked"></span>
+                            <span class="fa fa-star"></span>
+                            <span class="fa fa-star"></span>
+                        </h4>
                         {% for area in profissional.area.all %}
                             <p>- {{ area }}</p>
                         {% endfor %}
@@ -31,34 +38,33 @@
         <table class="table table-striped">
             <thead>
             <th>
-                <h2><h4><strong>Avaliações - </strong>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star checked"></span>
-                    <span class="fa fa-star"></span>
-                    <span class="fa fa-star"></span>
-                </h4></h2>
+                <h4><strong>Avaliações do profissional </strong>
+
+                </h4>
+            </th>
+            <th>
             </th>
             </thead>
             <tbody>
-            <tr>
-                <td style="vertical-align:middle">
-                    <p><strong>Serviço 01</strong></p>
-                    <p><em>Comentário do contratante sobre a execução do serviço.</em></p>
-                </td>
-            </tr>
-            <tr>
-                <td style="vertical-align:middle">
-                    <p><strong>Serviço 02</strong></p>
-                    <p><em>Comentário do contratante sobre a execução do serviço.</em></p>
-                </td>
-            </tr>
-            <tr>
-                <td style="vertical-align:middle">
-                    <p><strong>Serviço 03</strong></p>
-                    <p><em>Comentário do contratante sobre a execução do serviço.</em></p>
-                </td>
-            </tr>
+            {% for avalia in avaliacao %}
+                <tr>
+                    <td style="vertical-align:middle">
+                        <p><strong>{{ avalia.servico.descricao }}</strong> - <em>{{ avalia.servico.data }}</em></p>
+                        <p>{{ avalia.comentario }}</p>
+                    </td>
+                    <td>
+                        Critério 1: {{ avalia.campo1 }}<br>
+                        Critério 2: {{ avalia.campo2 }}<br>
+                        Critério 3: {{ avalia.campo3 }}<br>
+                        Critério 4: {{ avalia.campo4 }}<br>
+                        Critério 5: {{ avalia.campo5 }}<br>
+                    </td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="1" class="text-center bg-warning">Profissional sem avaliações</td>
+                </tr>
+            {% endfor %}
             </tbody>
         </table>
     {% else %}

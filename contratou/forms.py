@@ -1,6 +1,6 @@
 from django.forms import ModelForm
 
-from contratou.models import Profissional, Contratante, Segmento, Area
+from contratou.models import Profissional, Contratante, Segmento, Area, AvaliacaoProfissional, AvaliacaoContratante
 
 
 class FormProfissional(ModelForm):
@@ -58,3 +58,29 @@ class FormArea(ModelForm):
     class Meta:
         model = Area
         fields = ['segmento', 'descricao']
+
+class FormAvaliacaoProfissional(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(FormAvaliacaoProfissional, self).__init__(*args, **kwargs)
+
+        for field in iter(self.fields):
+            self.fields[field].widget.attrs.update({
+                'class': 'form-control'
+            })
+
+    class Meta:
+        model = AvaliacaoProfissional
+        fields = ['profissional', 'contratante', 'servico', 'comentario', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5']
+
+class FormAvaliacaoContratante(ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(FormAvaliacaoContratante, self).__init__(*args, **kwargs)
+
+        for field in iter(self.fields):
+            self.fields[field].widget.attrs.update({
+                'class': 'form-control'
+            })
+
+    class Meta:
+        model = AvaliacaoContratante
+        fields = ['profissional', 'contratante', 'servico', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5', 'comentario']

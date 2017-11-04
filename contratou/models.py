@@ -130,11 +130,14 @@ class Contratante(models.Model):
 class Servico(models.Model):
     profissional = models.ForeignKey(Profissional)
     contratante = models.ForeignKey(Contratante)
-    descricao = models.TextField(blank=True, null=True)
+    descricao = models.TextField(blank=False, null=False, default='Sem comentários')
     data = models.DateField(auto_now=False)
 
     class Meta:
         verbose_name_plural = 'Serviços'
+
+    def __str__(self):
+        return self.descricao
 
 
 class AvaliacaoProfissional(models.Model):
@@ -146,14 +149,11 @@ class AvaliacaoProfissional(models.Model):
     campo3 = models.IntegerField()
     campo4 = models.IntegerField()
     campo5 = models.IntegerField()
+    comentario = models.TextField(null=False)
 
     class Meta:
         verbose_name_plural = 'Avaliação Profissionais'
         ordering = ['profissional', 'contratante']
-
-    def __str__(self):
-        return self.profissional
-
 
 class AvaliacaoContratante(models.Model):
     profissional = models.ForeignKey(Profissional)
@@ -164,10 +164,8 @@ class AvaliacaoContratante(models.Model):
     campo3 = models.IntegerField()
     campo4 = models.IntegerField()
     campo5 = models.IntegerField()
+    comentario = models.TextField(null=False)
 
     class Meta:
         verbose_name_plural = 'Avaliação Contratantes'
         ordering = ['contratante', 'profissional']
-
-    def __str__(self):
-        return self.contratante
