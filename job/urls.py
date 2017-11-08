@@ -22,7 +22,7 @@ from job import settings
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^contratou/', include('contratou.urls')),
+    url(r'^', include('contratou.urls')),
     url(r'^accounts/login/$', views.login_view, name='contratou.login'),
 ]
 urlpatterns = urlpatterns + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

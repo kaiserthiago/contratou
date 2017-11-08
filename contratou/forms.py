@@ -67,7 +67,7 @@ class FormAvaliacaoProfissional(forms.ModelForm):
         exclude = ('contratante', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5')
 
         widgets = {
-            'profissional': forms.TextInput(attrs={'class': 'form-control'}),
+            'profissional': forms.Select(attrs={'class': 'form-control'}),
             'servico': forms.TextInput(attrs={'class': 'form-control'}),
             'data_servico': forms.SelectDateWidget(attrs={'class': 'form-control'}),
             'comentario': forms.Textarea(attrs={'class': 'form-control'}),
