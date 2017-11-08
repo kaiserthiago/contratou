@@ -1,9 +1,9 @@
-from django.forms import ModelForm
+from django import forms
 
 from contratou.models import Profissional, Contratante, Segmento, Area, AvaliacaoProfissional, AvaliacaoContratante
 
 
-class FormProfissional(ModelForm):
+class FormProfissional(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FormProfissional, self).__init__(*args, **kwargs)
 
@@ -18,7 +18,7 @@ class FormProfissional(ModelForm):
                   'cidade', 'email', 'telefone', 'foto', 'area']
 
 
-class FormContratante(ModelForm):
+class FormContratante(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FormContratante, self).__init__(*args, **kwargs)
 
@@ -33,7 +33,7 @@ class FormContratante(ModelForm):
                   'cidade', 'email', 'telefone']
 
 
-class FormSegmento(ModelForm):
+class FormSegmento(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FormSegmento, self).__init__(*args, **kwargs)
 
@@ -46,7 +46,7 @@ class FormSegmento(ModelForm):
         model = Segmento
         fields = ['descricao']
 
-class FormArea(ModelForm):
+class FormArea(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FormArea, self).__init__(*args, **kwargs)
 
@@ -59,20 +59,29 @@ class FormArea(ModelForm):
         model = Area
         fields = ['segmento', 'descricao']
 
-class FormAvaliacaoProfissional(ModelForm):
-    def __init__(self, *args, **kwargs):
-        super(FormAvaliacaoProfissional, self).__init__(*args, **kwargs)
-
-        for field in iter(self.fields):
-            self.fields[field].widget.attrs.update({
-                'class': 'form-control'
-            })
+class FormAvaliacaoProfissional(forms.ModelForm):
 
     class Meta:
         model = AvaliacaoProfissional
-        fields = ['profissional', 'servico', 'data_servico', 'comentario', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5']
+        # fields = ['profissional', 'servico', 'data_servico', 'comentario', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5']
+        exclude = ('contratante', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5')
 
-class FormAvaliacaoContratante(ModelForm):
+        widgets = {
+            'profissional': forms.TextInput(attrs={'class': 'form-control'}),
+            'servico': forms.TextInput(attrs={'class': 'form-control'}),
+            'data_servico': forms.SelectDateWidget(attrs={'class': 'form-control'}),
+            'comentario': forms.Textarea(attrs={'class': 'form-control'}),
+        }
+
+        labels = {
+            'profissional': "Profissional",
+            'servico': "Serviço executado",
+            'data_servico': "Data do serviço",
+            'comentario': "Comentários",
+        }
+
+
+class FormAvaliacaoContratante(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FormAvaliacaoContratante, self).__init__(*args, **kwargs)
 

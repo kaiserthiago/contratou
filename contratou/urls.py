@@ -9,7 +9,11 @@ urlpatterns = [
     url(r'^logout$', views.logout_view, name='contratou.logout'),
 
     url(r'^contato/$', views.contato, name='contratou.contato'),
-    url(r'^profissionais/$', views.profissionais, name='contratou.profissionais'),
+    url(r'^segmentos/(?P<segmento_id>\d+)/profissionais$', views.profissionais, name='contratou.profissionais'),
+
+    url(r'^segmentos/$', views.segmentos, name='contratou.segmentos'),
+
+
     url(r'^profissional/detalhe/(?P<profissional_id>\d+)/$', views.profissional_detalhe, name='contratou.profissional_detalhe'),
     url(r'^sobre/$', views.sobre, name='contratou.sobre'),
 

@@ -1,0 +1,80 @@
+{% extends "contratou/layout.html" %}
+{% block class_segmentos %} class="active" {% endblock %}
+
+{% block link_css %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock %}
+
+{% load static %}
+
+{% block conteudo %}
+
+    <div class="col-sm-2 well">
+        <h2>Segmentos</h2>
+        <ul>
+            {% for segmento in segmentos %}
+                <li>
+                    <a href="{% url 'contratou.profissionais' segmento.id %}"> {{ segmento.descricao }} </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="col-sm-10">
+        {% if profissionais %}
+            <h2>Profissionais</h2>
+            <table class="table table-striped">
+                {#                <thead>#}
+                {#                <th colspan="2"></th>#}
+                {#                </thead>#}
+                <tbody>
+
+                {% for profissional in profissionais %}
+                    <tr class='clickable-row'
+                        data-href={% url 'contratou.profissional_detalhe' profissional.id %} style="cursor:pointer">
+                        <td style="vertical-align:middle">
+                            <img src="{{ profissional.foto.url }}" class="img-resposive"
+                                 style="width:90px; border-radius: 10%">
+                        </td>
+                        <td style="vertical-align:middle">
+                            <h4><strong>{{ profissional.nome }}</strong></h4>
+
+                            <p><span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                            </p>
+                            {% if profissional.area.count > 1 %}
+                                {% for area in profissional.area.all %}
+                                    <p>- {{ area }}</p>
+                                {% endfor %}
+                            {% else %}
+                                <p>- {{ profissional.area.first }}</p>
+                            {% endif %}
+
+                        </td>
+                    </tr>
+                {% empty %}
+                    <div class="container">
+                        <h2 class="alert alert-warning text-center"> Sem profissionais cadastrados no momento!</h2>
+                    </div>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="container">
+                <h2 class="text-center well"> Selecione o segmento para visualizar os prifissionais!</h2>
+            </div>
+        {% endif %}
+    </div>
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
+
+{% endblock %}
+

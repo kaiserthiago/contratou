@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse
 
 from contratou.forms import FormAvaliacaoProfissional
-from contratou.models import Profissional, AvaliacaoProfissional
+from contratou.models import Profissional, AvaliacaoProfissional, Segmento
 
 
 def login_view(request):
@@ -64,14 +64,24 @@ def contato(request):
     return render(request, 'contratou/contato.html', {})
 
 
-def profissionais(request):
-    profissionais = Profissional.objects.all()
+def profissionais(request, segmento_id):
+    profissionais = Profissional.objects.filter(area__segmento=segmento_id)
+    segmentos = Segmento.objects.all()
 
     context = {
+        'segmentos': segmentos,
         'profissionais': profissionais,
     }
-    return render(request, 'contratou/profissionais.html', context)
+    return render(request, 'contratou/segmentos.html', context)
 
+def segmentos(request):
+    segmentos = Segmento.objects.all()
+
+    context = {
+        'segmentos': segmentos
+    }
+
+    return render(request, 'contratou/segmentos.html', context)
 
 def profissional_detalhe(request, profissional_id):
     profissionais = Profissional.objects.filter(pk=profissional_id)

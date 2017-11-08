@@ -9,10 +9,9 @@
 
 {% block conteudo %}
 
-
     <table class="table table-striped">
         <thead>
-        <th colspan="2"><h2>Profissionais</h2></th>
+        <th colspan="2"><h2>PProfissionais</h2></th>
         </thead>
         <tbody>
         {% for profissional in profissionais %}
@@ -49,6 +48,8 @@
         {% endfor %}
         </tbody>
     </table>
+
+
     <script>
         jQuery(document).ready(function ($) {
             $(".clickable-row").click(function () {
@@ -56,117 +57,5 @@
             });
         });
     </script>
-    {#    {% for profissional in profissionais %}#}
-    {#        <a href="{% url 'contratou.profissional_detalhe' profissional.id %}">#}
-    {#            <div class="chip">#}
-    {#                <img src="{{ profissional.foto.url }}" class="img-resposive">#}
-    {#                <b>{{ profissional.nome }}</b><br>#}
-    {#                {% if profissional.area.count > 1 %}#}
-    {#                    Várias áreas<br>#}
-    {#                Áreas:#}
-    {#                {% for area in profissional.area.all %}#}
-    {#                    {{ area }}#}
-    {#                {% endfor %}#}
-    {#                {% else %}#}
-    {#                    {{ profissional.area.first }}<br>#}
-    {#                {% endif %}#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star"></span>#}
-    {#            </div>#}
-    {#        </a>#}
-    {#    {% empty %}#}
-    {#        <div class="container">#}
-    {#            <h2 class="alert alert-warning text-center"> Sem profissionais cadastrados no momento!</h2>#}
-    {#        </div>#}
-    {#    {% endfor %}#}
-
-    {##}
-    {#    <div class="card">#}
-    {#        <img src="{% static 'img/img_avatar2.png' %}" alt="Avatar" style="width:100%">#}
-    {#        <div class="container">#}
-    {#            <h4><b>Nome Profissional</b></h4>#}
-    {#            <p>Área de atuação</p>#}
-    {#            <p>Reputação#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star"></span>#}
-    {#                <span class="fa fa-star"></span></p>#}
-    {#        </div>#}
-    {#    </div>#}
-    {##}
-    {##}
-    {#    <div class="card">#}
-    {#        <img src="{% static 'img/img_avatar.png' %}" alt="Avatar" style="width:100%">#}
-    {#        <div class="container">#}
-    {#            <h4><b>Nome Profissional</b></h4>#}
-    {#            <p>Área de atuação</p>#}
-    {#            <p>Reputação#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star"></span></p>#}
-    {#        </div>#}
-    {#    </div>#}
-    {##}
-    {#    <div class="card">#}
-    {#        <img src="{% static 'img/img_avatar2.png' %}" alt="Avatar" style="width:100%">#}
-    {#        <div class="container">#}
-    {#            <h4><b>Nome Profissional</b></h4>#}
-    {#            <p>Área de atuação</p>#}
-    {#            <p>Reputação#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star"></span>#}
-    {#                <span class="fa fa-star"></span></p>#}
-    {#        </div>#}
-    {#    </div>#}
-    {##}
-    {#    <div class="card">#}
-    {#        <img src="{% static 'img/img_avatar.png' %}" alt="Avatar" style="width:100%">#}
-    {#        <div class="container">#}
-    {#            <h4><b>Nome Profissional</b></h4>#}
-    {#            <p>Área de atuação</p>#}
-    {#            <p>Reputação#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star"></span>#}
-    {#                <span class="fa fa-star"></span></p>#}
-    {#        </div>#}
-    {#    </div>#}
-    {##}
-    {#    <div class="card">#}
-    {#        <img src="{% static 'img/img_avatar2.png' %}" alt="Avatar" style="width:100%">#}
-    {#        <div class="container">#}
-    {#            <h4><b>Nome Profissional</b></h4>#}
-    {#            <p>Área de atuação</p>#}
-    {#            <p>Reputação#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star"></span>#}
-    {#                <span class="fa fa-star"></span></p>#}
-    {#        </div>#}
-    {#    </div>#}
-    {##}
-    {#    <div class="card">#}
-    {#        <img src="{% static 'img/img_avatar.png' %}" alt="Avatar" style="width:100%">#}
-    {#        <div class="container">#}
-    {#            <h4><b>Nome Profissional</b></h4>#}
-    {#            <p>Área de atuação</p>#}
-    {#            <p>Reputação#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star checked"></span>#}
-    {#                <span class="fa fa-star"></span>#}
-    {#                <span class="fa fa-star"></span></p>#}
-    {#        </div>#}
-    {#    </div>#}
 {% endblock %}
 

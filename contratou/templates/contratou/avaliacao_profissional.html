@@ -8,15 +8,7 @@
         <form action="" method="POST" class="post-form">
             {% csrf_token %}
             <div class="form-group">
-{#                {{ form.as_p }}#}
-                <strong>Profissional contratado</strong>
-                {{ form.profissional }}
-                <strong>Serviço executado</strong>
-                {{ form.servico }}
-                <strong>Data execução</strong>
-                {{ form.data_servico }}
-                <strong>Comentários</strong>
-                {{ form.comentario }}
+                {{ form.as_p }}
                 <div class="row">
                     <div class="col-md-2">
                         <h4>Critério 1</h4>
