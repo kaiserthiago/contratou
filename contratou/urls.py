@@ -13,6 +13,8 @@ urlpatterns = [
 
     url(r'^segmentos/$', views.segmentos, name='contratou.segmentos'),
 
+    url(r'^search/$', views.search, name='contratou.search'),
+
 
     url(r'^profissional/detalhe/(?P<profissional_id>\d+)/$', views.profissional_detalhe, name='contratou.profissional_detalhe'),
     url(r'^sobre/$', views.sobre, name='contratou.sobre'),

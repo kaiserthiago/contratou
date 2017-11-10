@@ -1,0 +1,170 @@
+{% extends "layout.html" %}
+{% block class_searc %} class="active" {% endblock %}
+{% block titulo %}Busca por profissionais - Contratou!{% endblock %}
+{% load static %}
+
+{% block conteudo %}
+    {% if id_area %}
+        <h2 class="page-header">Busca por: {{ area_descricao }}</h2>
+    {% else %}
+        <h2 class="page-header">Busca por profissionais</h2>
+    {% endif %}
+    <div class="row">
+        {#        <div class="col-sm-12">#}
+        {#            <h4>#}
+        {#                Busca por:#}
+        {#                {% if qs %}#}
+        {#                    {{ qs }}#}
+        {#                {% else %}#}
+        {#                    {{ area_descricao }}#}
+        {#                {% endif %}#}
+        {#            </h4>#}
+        {#        </div>#}
+        <div class="col-sm-3">
+            <ul class="list-group">
+                <li class="disabled">
+                    <p><strong>Áreas</strong></p>
+                </li>
+                {% for area in areas %}
+                    <li>
+                        <a href="{% url 'contratou.search' %}?area={{ area.id }}">{{ area.descricao }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="col-sm-9">
+            {#                BUSCA DO ALGOLIA#}
+            {#            {% if results.hits %}#}
+            {#                <table class="table table-striped">#}
+            {#                    <thead>#}
+            {#                        <th colspan="2"></th>#}
+            {#                    </thead>#}
+            {#                    <tbody>#}
+            {#                    {% for profissional in results.hits %}#}
+            {#                        Nome: {{ profissional.descricao }}#}
+            {##}
+            {#                        <tr class='clickable-row'#}
+            {#                            data-href={% url 'contratou.profissional_detalhe' profissional.id %} style="cursor:pointer">#}
+            {##}
+            {#                            <td style="vertical-align:middle">#}
+            {#                                <img src="{{ profissional.foto.url }}" class="img-resposive"#}
+            {#                                     style="width:90px; border-radius: 10%">#}
+            {#                            </td>#}
+            {##}
+            {#                            <td style="vertical-align:middle">#}
+            {#                                <h4><strong>{{ profissional.nome }}</strong></h4>#}
+            {#                                <p>#}
+            {#                                    <span class="fa fa-star checked"></span>#}
+            {#                                    <span class="fa fa-star checked"></span>#}
+            {#                                    <span class="fa fa-star checked"></span>#}
+            {#                                    <span class="fa fa-star checked"></span>#}
+            {#                                    <span class="fa fa-star"></span>#}
+            {#                                </p>#}
+            {#                            </td>#}
+            {#                        </tr>#}
+            {#                    {% endfor %}#}
+            {#                    </tbody>#}
+            {#                </table>#}
+            {#                    PAGINAÇÃO DO ALGOLIA#}
+            {#                <nav>#}
+            {#                    <div class="pagination">#}
+            {#                            <span class="step-links">#}
+            {#                            se a página for maior que zero pode voltar pra anterior#}
+            {#                                {% if results.page > 0 %}#}
+            {#                                    <a href="?qs={{ results.query }}&page={{ previous_page }}">#}
+            {#                                        <span>&laquo;</span>#}
+            {#                                    </a>#}
+            {#                                {% endif %}#}
+            {##}
+            {#                                <span class="current">#}
+            {#                                    Página {{ next_page }} de {{ results.nbPages }}#}
+            {#                                </span>#}
+            {#                                {% if results.page >= 0 and next_page < results.nbPages %}#}
+            {#                                    <a href="?qs={{ results.query }}&page={{ next_page }}">#}
+            {#                                        <span>&raquo;</span>#}
+            {#                                    </a>#}
+            {#                                {% endif %}#}
+            {#                            </span>#}
+            {#                    </div>#}
+            {#                </nav>#}
+            {#                BSUCA POR CATEGORIA, NO BANCO DE DADOS#}
+            {#            {% elif request.GET.area %}#}
+            {% if request.GET.area %}
+                {% if results %}
+                    <table class="table table-striped">
+                        <thead>
+                        <th colspan="2"></th>
+                        </thead>
+                        <tbody>
+                        {% for profissional in results %}
+                            <tr class='clickable-row'
+                                data-href={% url 'contratou.profissional_detalhe' profissional.id %} style="cursor:pointer">
+                                <td style="vertical-align:middle">
+                                    <img src="{{ profissional.foto.url }}" class="img-resposive"
+                                         style="width:90px; border-radius: 10%">
+                                </td>
+                                <td style="vertical-align:middle">
+                                    <h4><strong>{{ profissional.nome }}</strong></h4>
+                                    <p>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star checked"></span>
+                                        <span class="fa fa-star"></span>
+                                    </p>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    {#                    PAGINAÇÃO DO DJANGO#}
+                    <nav>
+                        <div class="pagination">
+                            <span class="step-links">
+{#                            se a página for maior que zero pode voltar pra anterior#}
+                                {% if results.has_previous %}
+                                    <a href="?area={{ id_area }}&page={{ results.previous_page_number }}">
+                                        <span>&laquo;</span>
+                                    </a>
+                                {% endif %}
+
+                                <span class="current">
+                                    Página {{ results.number }} de {{ results.paginator.num_pages }}
+                                </span>
+
+                                {% if results.has_next %}
+                                    <a href="?area={{ id_area }}&page={{ results.next_page_number }}">
+                                        <span>&raquo;</span>
+                                    </a>
+                                {% endif %}
+                            </span>
+                        </div>
+                    </nav>
+
+                {% else %}
+                    <div>
+                        <p class="alert alert-warning text-center"><strong>Não há profissionais para a área
+                            escolhida. Por favor tente em outras áreas</strong></p>
+                    </div>
+                {% endif %}
+            {% else %}
+                <div>
+                    <p class="alert alert-info text-center"><strong>Escolha uma área para visualizar os
+                        profissionais.</strong></p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        jQuery(document).ready(function ($) {
+            $(".clickable-row").click(function () {
+                window.location = $(this).data("href");
+            });
+        });
+    </script>
+{% endblock %}

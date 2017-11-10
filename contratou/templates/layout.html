@@ -6,7 +6,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-star-rating/4.0.2/css/star-rating.min.css"/>
 
     {% load static %}
     <link rel="stylesheet" href="{% static '/css/layout.css' %}">
@@ -21,8 +23,8 @@
     </style>
 </head>
 <body>
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container-fluid">
+<nav class="navbar navbar-inverse">
+    <div class="container">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                 <span class="icon-bar"></span>
@@ -30,59 +32,86 @@
                 <span class="icon-bar"></span>
             </button>
             {% load static %}
-            <!--<a href="javascript: history.go(-1)">-->
-            <a href="{% url 'contratou.home' %}">
-            <span class="navbar-brand"> <img src="{% static '/img/logo_ifro.png' %}" class="img-responsive"
-                                             width="30"></span>
-            </a>
+            {#            <a href="{% url 'contratou.home' %}">#}
+            {#            <span class="navbar-brand"> <img src="{% static '/img/logo_ifro.png' %}" class="img-responsive"#}
+            {#                                             width="30"></span>#}
+            {#            </a>#}
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-                <li {% block class_home %} {% endblock %}><a href="{% url 'contratou.home' %}"><span
-                        class="glyphicon glyphicon-home"></span>
-                    Home</a></li>
-                <li
-                {% block class_segmentos %} {% endblock %}><a href="{% url 'contratou.segmentos' %}"><span
-                    class="glyphicon glyphicon-briefcase"></span> Segmentos</a>
-                <li
-                {% block class_sobre %} {% endblock %}><a href="{% url 'contratou.sobre' %}"><span
-                    class="glyphicon glyphicon-question-sign"></span>
-                Sobre</a></li>
-                <li
-                {% block class_contato %} {% endblock %}><a href="{% url 'contratou.contato' %}"><span
-                    class="glyphicon glyphicon-envelope"></span>
-                Contato</a></li>
-                <li
-                {% block class_avalia_prof %} {% endblock %}><a
-                    href="{% url 'contratou.avaliacao_profissional' %}"><span
-                    class="glyphicon glyphicon-pencil"></span>
-                Avaliação Profissional</a></li>
+
+                {#                <li#}
+                {#                        {% block class_segmentos %} {% endblock %}><a href="{% url 'contratou.segmentos' %}"><i#}
+                {#                        class="fa fa-briefcase" style="font-size:16px"></i> Segmentos</a>#}
+                {#                </li>#}
+
+
             </ul>
+            {#            <form action="{% url 'contratou.search' %}" class="navbar-form navbar-left navbar-form-job">#}
+            {#            <form action="" class="navbar-form navbar-left navbar-form-job">#}
+            {#                <div class="input-group">#}
+            {#                    <input type="text" class="form-control" name="qs" id="search"#}
+            {#                           placeholder="Busca pela área de atuação..." value="{{ qs }}">#}
+            {#                    <span class="input-group-btn">#}
+            {#                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>#}
+            {#                            </span>#}
+            {#                </div>#}
+            {#                <button type="submit" class="btn btn-default">Submit</button>#}
+            {#            </form>#}
             <ul class="nav navbar-nav navbar-right">
+                <li {% block class_home %} {% endblock %}><a href="{% url 'contratou.home' %}"><i
+                        class="fa fa-home" style="font-size:16px"></i></a>
+                </li>
+                <li {% block class_search %} {% endblock %}><a href="{% url 'contratou.search' %}"><i
+                        class="fa fa-search" style="font-size:16px"></i></a>
+                </li>
+                <li
+                        {% block class_sobre %} {% endblock %}><a href="{% url 'contratou.sobre' %}"><i
+                        class="fa fa-question-circle-o" style="font-size:16px"></i></a>
+                </li>
+                <li
+                        {% block class_contato %} {% endblock %}><a href="{% url 'contratou.contato' %}"><i
+                        class="fa fa-envelope-o" style="font-size:16px"></i></a>
+                </li>
+                {% if request.user.is_authenticated %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                           aria-expanded="false"><span>{{ request.user.username }}</span> <i
+                                class="fa fa-user-o" style="font-size:16px;"></i></a>
+                        <ul class="dropdown-menu">
+                            <li
+                                    {% block class_avalia_prof %} {% endblock %}><a
+                                    href="{% url 'contratou.avaliacao_profissional' %}"><i
+                                    class="fa fa-pencil-square-o" style="font-size:16px"></i>
+                                Avaliar Profissional</a>
+                            </li>
+                            <li><a href="#"><i
+                                    class="fa fa-pencil-square" style="font-size:16px"></i> Avaliações realizadas</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a href="#"><i
+                                    class="fa fa-user-circle-o" style="font-size:16px"></i> Meus dados</a></li>
+
+
+                            <li class="divider"></li>
+                            <li>
+                                <a data-toggle="modal" href="#modal-logout"><i
+                                        class="fa fa-power-off" style="font-size:16px;"></i> Sair</a>
+                            </li>
+
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a data-toggle="modal" href="#modal-login"><i
+                            class="fa fa-lock" style="font-size:16px;"></i></a></li>
+                {% endif %}
             </ul>
-            {% if request.user.is_authenticated %}
-            <ul class="nav navbar-nav navbar-right">
-                <li><a data-toggle="modal" href="#modal-logout"><span
-                        class="glyphicon glyphicon-log-out"></span>
-                    Logout</a></li>
-            </ul>
-            {% else %}
-            <ul class="nav navbar-nav navbar-right">
-                <li><a data-toggle="modal" href="#modal-login"><span
-                        class="glyphicon glyphicon-log-in"></span>
-                    Login</a></li>
-            </ul>
-            {% endif %}
         </div>
     </div>
 </nav>
 
-<div class="container-fluid" style="margin-top:50px">
-    <div class="row">
-        <div class="col-md-12">
-            {% block conteudo %} {% endblock %}
-        </div>
-    </div>
+<div class="container">
+    {% block conteudo %} {% endblock %}
 </div>
 
 <footer>
@@ -93,8 +122,8 @@
 {#{% else %}#}
 {# {% if erro %}#}
 {# <p class="alert alert-danger">#}
-    {# Usuário ou senha inválidos!#}
-    {# </p>#}
+{# Usuário ou senha inválidos!#}
+{# </p>#}
 {# {% endif %}#}
 {# {% include 'contratou/login_include.html' %}#}
 {#{% endif %}#}
@@ -175,4 +204,5 @@
 </div>
 
 </body>
+{% block script %} {% endblock %}
 </html>

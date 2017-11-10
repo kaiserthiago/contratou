@@ -46,6 +46,7 @@ class FormSegmento(forms.ModelForm):
         model = Segmento
         fields = ['descricao']
 
+
 class FormArea(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FormArea, self).__init__(*args, **kwargs)
@@ -59,8 +60,8 @@ class FormArea(forms.ModelForm):
         model = Area
         fields = ['segmento', 'descricao']
 
-class FormAvaliacaoProfissional(forms.ModelForm):
 
+class FormAvaliacaoProfissional(forms.ModelForm):
     class Meta:
         model = AvaliacaoProfissional
         # fields = ['profissional', 'servico', 'data_servico', 'comentario', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5']
@@ -92,4 +93,5 @@ class FormAvaliacaoContratante(forms.ModelForm):
 
     class Meta:
         model = AvaliacaoContratante
-        fields = ['profissional', 'contratante', 'servico', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5', 'comentario']
+        fields = ['profissional', 'contratante', 'servico', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5',
+                  'comentario']

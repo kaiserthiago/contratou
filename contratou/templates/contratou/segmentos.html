@@ -1,4 +1,4 @@
-{% extends "contratou/layout.html" %}
+{% extends "contratou/../layout.html" %}
 {% block class_segmentos %} class="active" {% endblock %}
 
 {% block link_css %}
@@ -56,14 +56,14 @@
                         </td>
                     </tr>
                 {% empty %}
-                    <div class="container">
+                    <div>
                         <h2 class="alert alert-warning text-center"> Sem profissionais cadastrados no momento!</h2>
                     </div>
                 {% endfor %}
                 </tbody>
             </table>
         {% else %}
-            <div class="container">
+            <div>
                 <h2 class="text-center well"> Selecione o segmento para visualizar os prifissionais!</h2>
             </div>
         {% endif %}

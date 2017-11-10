@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'algoliasearch_django',
     'contratou',
 ]
 
@@ -129,3 +130,11 @@ MEDIA_ROOT = (
 )
 
 MEDIA_URL = '/media/' #endereço para acessar os arquivos
+
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = '/login'
+
+ALGOLIA = {
+    'APPLICATION_ID': 'SCWGZ4PA3L',
+    'API_KEY': 'd4ad4a24decb55d465b9d9c47118c35a'
+}

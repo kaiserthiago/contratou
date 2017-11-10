@@ -1,12 +1,8 @@
-{% extends "contratou/layout.html" %}
+{% extends "contratou/../layout.html" %}
 {% block class_home %} class="active" {% endblock %}
 {% load static %}
 
 {% block conteudo %}
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="page-header text-center">Contratou! FACILITANDO A CONTRATAÇÃO DE SERVIÇOS</h2>
-            <img src="{% static 'img/logo2.png' %}" class="img-responsive">
-        </div>
-    </div>
+    <h2 class="page-header text-center">Contratou! FACILITANDO A CONTRATAÇÃO DE SERVIÇOS</h2>
+    <img src="{% static 'img/logo2.png' %}" class="img-responsive">
 {% endblock %}

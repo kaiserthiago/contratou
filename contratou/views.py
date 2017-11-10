@@ -1,12 +1,12 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.db.models import Avg, Count, Max, Sum
+import algoliasearch_django as algoliasearch
+from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render, redirect, get_object_or_404
 
 from contratou.forms import FormAvaliacaoProfissional
-from contratou.models import Profissional, AvaliacaoProfissional, Segmento
+from contratou.models import Profissional, AvaliacaoProfissional, Segmento, Area
 
 
 def login_view(request):
@@ -96,3 +96,49 @@ def profissional_detalhe(request, profissional_id):
 
 def sobre(request):
     return render(request, 'contratou/sobre.html', {})
+
+def search(request):
+    areas = Area.objects.all().order_by('descricao')
+    qs = request.GET.get('qs', '')
+    id_area = request.GET.get('area', '')
+    page = request.GET.get('page', '0')
+
+    results = None
+    area_descricao = ''
+    previous_page = ''
+    next_page = ''
+
+    if page:
+        next_page = int(page) + 1
+        previous_page = int(page) - 1
+
+    if qs:
+        params = {'hitsPerPage': 2, 'page': page}
+        results = algoliasearch.raw_search(Profissional, qs, params)
+
+    if id_area:
+        area = get_object_or_404(Area, id=id_area)
+        area_descricao = area.descricao
+        results = Profissional.objects.filter(area=area).order_by('nome')
+
+        paginator = Paginator(results, 5)
+        page = request.GET.get('page', 1)
+
+        try:
+            results = paginator.page(page)
+        except PageNotAnInteger:
+            results = paginator.page(1)
+        except EmptyPage:
+            results = paginator.page(paginator.num_pages)
+
+    context = {
+        'areas': areas,
+        'results': results,
+        'area_descricao': area_descricao,
+        'qs': qs,
+        'previous_page': previous_page,
+        'next_page': next_page,
+        'id_area': id_area,
+    }
+
+    return render(request, 'contratou/profissional_search.html', context)

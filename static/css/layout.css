@@ -1,3 +1,13 @@
+.navbar-form-job .form-control {
+    /*height: 40px;*/
+    width: 455px !important;
+}
+
+.navbar-inverse.navbar-job {
+    background-color: #88ca41;
+
+}
+
 .estrelas input[type=radio] {
     display: none;
 }
@@ -13,8 +23,8 @@
 
 /*Remove a margem padrão de baixo da navbar e as bordas arredondadas*/
 .navbar {
-    margin-bottom: 0;
-    border-radius: 0;
+    margin-bottom: 0px;
+    border-radius: 0px;
 }
 
 /* Style the side navigation */
@@ -68,6 +78,19 @@ p {
     text-indent: 25px;
 }
 
+html {
+    font-size: 10px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #333333;
+    background-color: #fff;
+}
+
 h2 {
     font-size: 24px;
     text-transform: uppercase;
@@ -83,6 +106,77 @@ h4 {
     color: #303030;
     font-weight: 400;
     /*margin-bottom: 30px;*/
+}
+
+.section-content {
+    height: 100%;
+}
+
+.section-search img {
+    width: 100px;
+}
+
+.media {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #ddd
+}
+
+.media-body a h4 {
+    color: #0033bb;
+}
+
+.media-body a p {
+    font-size: 1.2em;
+    color: #666;
+}
+
+.media-body .navbar-right p {
+    font-size: 1.4em;
+    font-weight: bold;
+    margin-right: 20px;
+    color: #900;
+    position: relative;
+    bottom: 40px;
+}
+
+.media-body a:hover {
+    text-decoration: none
+}
+
+.list-group {
+    margin-left: 0;
+    background-color: #f4f4f4;
+    border-radius: 5px;
+    padding: 15px 0 15px 15px;
+}
+
+.list-group li {
+    list-style: none;
+}
+
+.list-group li.disabled {
+    padding: 0 0 10px 0;
+}
+
+.list-group li.subcategories {
+    padding-left: 10px;
+}
+
+.media-body {
+    zoom: 1;
+    overflow: hidden;
+}
+
+.media-body {
+    width: 10000px;
+}
+
+.media-object {
+    display: block;
+}
+
+.media-object.img-thumbnail {
+    max-width: none;
 }
 
 .chip {

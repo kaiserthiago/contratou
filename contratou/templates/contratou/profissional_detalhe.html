@@ -1,4 +1,4 @@
-{% extends "contratou/layout.html" %}
+{% extends "contratou/../layout.html" %}
 {% block class_profissionais %} class="active" {% endblock %}
 
 {% block link_css %}
@@ -8,6 +8,9 @@
 {% load static %}
 
 {% block conteudo %}
+<p><a href="javascript:window.history.go(-1)"><span
+                    class="glyphicon glyphicon-arrow-left"></span> Voltar</a></p>
+
     {% if request.user.is_authenticated %}
         <table class="table">
             {% for profissional in profissionais %}
@@ -49,7 +52,8 @@
             {% for avalia in avaliacao %}
                 <tr>
                     <td style="vertical-align:middle">
-                        <p><strong>{{ avalia.servico }}</strong> - <em>{{ avalia.data_servico }}</em> (Avaliado por: {{ avalia.contratante }})</p>
+                        <p><strong>{{ avalia.servico }}</strong> - <em>{{ avalia.data_servico }}</em> (Avaliado
+                            por: {{ avalia.contratante }})</p>
                         <p>{{ avalia.comentario }}</p>
                     </td>
                     <td>
