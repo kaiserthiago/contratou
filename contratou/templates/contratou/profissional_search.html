@@ -1,5 +1,5 @@
 {% extends "layout.html" %}
-{% block class_searc %} class="active" {% endblock %}
+{% block class_search %} class="active" {% endblock %}
 {% block titulo %}Busca por profissionais - Contratou!{% endblock %}
 {% load static %}
 
@@ -22,13 +22,18 @@
         {#        </div>#}
         <div class="col-sm-3">
             <ul class="list-group">
-                <li class="disabled">
-                    <p><strong>Áreas</strong></p>
-                </li>
-                {% for area in areas %}
+
+                {% for segmento in segmentos %}
                     <li>
-                        <a href="{% url 'contratou.search' %}?area={{ area.id }}">{{ area.descricao }}</a>
+                        <strong>{{ segmento.descricao }}</strong>
                     </li>
+                    {% for area in areas %}
+                        {% if area.segmento.id == segmento.id %}
+                            <li class="subcategories">
+                                <a href="{% url 'contratou.search' %}?area={{ area.id }}">{{ area.descricao }}</a>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
                 {% endfor %}
             </ul>
         </div>

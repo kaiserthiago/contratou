@@ -98,6 +98,7 @@ def sobre(request):
     return render(request, 'contratou/sobre.html', {})
 
 def search(request):
+    segmentos = Segmento.objects.all().order_by('descricao')
     areas = Area.objects.all().order_by('descricao')
     qs = request.GET.get('qs', '')
     id_area = request.GET.get('area', '')
@@ -132,6 +133,7 @@ def search(request):
             results = paginator.page(paginator.num_pages)
 
     context = {
+        'segmentos': segmentos,
         'areas': areas,
         'results': results,
         'area_descricao': area_descricao,

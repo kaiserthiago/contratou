@@ -39,7 +39,20 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
             <ul class="nav navbar-nav">
-
+<li {% block class_home %} {% endblock %}><a href="{% url 'contratou.home' %}"><i
+                        class="fa fa-home" style="font-size:16px"></i> Home</a>
+                </li>
+                <li {% block class_search %} {% endblock %}><a href="{% url 'contratou.search' %}"><i
+                        class="fa fa-search" style="font-size:16px"></i> Pesquisar</a>
+                </li>
+                <li
+                        {% block class_sobre %} {% endblock %}><a href="{% url 'contratou.sobre' %}"><i
+                        class="fa fa-question-circle-o" style="font-size:16px"></i> Sobre</a>
+                </li>
+                <li
+                        {% block class_contato %} {% endblock %}><a href="{% url 'contratou.contato' %}"><i
+                        class="fa fa-envelope-o" style="font-size:16px"></i> Contato</a>
+                </li>
                 {#                <li#}
                 {#                        {% block class_segmentos %} {% endblock %}><a href="{% url 'contratou.segmentos' %}"><i#}
                 {#                        class="fa fa-briefcase" style="font-size:16px"></i> Segmentos</a>#}
@@ -59,20 +72,7 @@
             {#                <button type="submit" class="btn btn-default">Submit</button>#}
             {#            </form>#}
             <ul class="nav navbar-nav navbar-right">
-                <li {% block class_home %} {% endblock %}><a href="{% url 'contratou.home' %}"><i
-                        class="fa fa-home" style="font-size:16px"></i></a>
-                </li>
-                <li {% block class_search %} {% endblock %}><a href="{% url 'contratou.search' %}"><i
-                        class="fa fa-search" style="font-size:16px"></i></a>
-                </li>
-                <li
-                        {% block class_sobre %} {% endblock %}><a href="{% url 'contratou.sobre' %}"><i
-                        class="fa fa-question-circle-o" style="font-size:16px"></i></a>
-                </li>
-                <li
-                        {% block class_contato %} {% endblock %}><a href="{% url 'contratou.contato' %}"><i
-                        class="fa fa-envelope-o" style="font-size:16px"></i></a>
-                </li>
+
                 {% if request.user.is_authenticated %}
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -81,7 +81,8 @@
                         <ul class="dropdown-menu">
                             <li
                                     {% block class_avalia_prof %} {% endblock %}><a
-                                    href="{% url 'contratou.avaliacao_profissional' %}"><i
+{#                                    href="{% url 'contratou.avaliacao_profissional' %}"><i#}
+                                    href="#"><i
                                     class="fa fa-pencil-square-o" style="font-size:16px"></i>
                                 Avaliar Profissional</a>
                             </li>
@@ -103,7 +104,7 @@
                     </li>
                 {% else %}
                     <li><a data-toggle="modal" href="#modal-login"><i
-                            class="fa fa-lock" style="font-size:16px;"></i></a></li>
+                            class="fa fa-lock" style="font-size:16px;"></i> Login</a></li>
                 {% endif %}
             </ul>
         </div>
