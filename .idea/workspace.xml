@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a83908fc-303e-48ac-9ff3-31253b577f46" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contratou/templates/contratou/profissional_search.html" afterPath="$PROJECT_DIR$/contratou/templates/contratou/profissional_search.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contratou/templates/layout.html" afterPath="$PROJECT_DIR$/contratou/templates/layout.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/contratou/views.py" afterPath="$PROJECT_DIR$/contratou/views.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/static/css/layout.css" afterPath="$PROJECT_DIR$/static/css/layout.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -19,11 +17,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="profissional_search.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="profissional_search.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/profissional_search.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+            <state relative-caret-position="775">
+              <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
               <folding>
                 <marker date="1510428225328" expanded="false" signature="4126:4133" ph="«" />
                 <marker date="1510428225328" expanded="false" signature="4779:4786" ph="»" />
@@ -55,8 +53,8 @@
       <file leaf-file-name="layout.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/css/layout.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="160" column="22" lean-forward="false" selection-start-line="160" selection-start-column="18" selection-end-line="160" selection-end-column="22" />
+            <state relative-caret-position="625">
+              <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -72,17 +70,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="layout.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="layout.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/contratou/templates/layout.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1100">
-              <caret line="44" column="42" lean-forward="false" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="42" />
+            <state relative-caret-position="398">
+              <caret line="37" column="23" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="37" selection-end-column="23" />
               <folding>
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-                <marker date="1510354591112" expanded="false" signature="2938:2952" ph="..." />
+                <marker date="1510429378333" expanded="false" signature="2955:2969" ph="..." />
               </folding>
             </state>
           </provider>
@@ -212,11 +206,11 @@
         <option value="$PROJECT_DIR$/contratou/apps.py" />
         <option value="$PROJECT_DIR$/contratou/templates/contratou/sobre.html" />
         <option value="$PROJECT_DIR$/contratou/templates/contratou/contato.html" />
-        <option value="$PROJECT_DIR$/static/css/layout.css" />
         <option value="$PROJECT_DIR$/contratou/templates/contratou/home.html" />
-        <option value="$PROJECT_DIR$/contratou/templates/layout.html" />
         <option value="$PROJECT_DIR$/contratou/views.py" />
         <option value="$PROJECT_DIR$/contratou/templates/contratou/profissional_search.html" />
+        <option value="$PROJECT_DIR$/static/css/layout.css" />
+        <option value="$PROJECT_DIR$/contratou/templates/layout.html" />
       </list>
     </option>
   </component>
@@ -745,20 +739,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contratou/templates/layout.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1100">
-          <caret line="44" column="42" lean-forward="false" selection-start-line="44" selection-start-column="35" selection-end-line="44" selection-end-column="42" />
-          <folding>
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#0;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#1;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#2;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#li#3;n#ul#0;n#div#1;n#div#0;n#nav#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <marker date="1510354591112" expanded="false" signature="2938:2952" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/contratou/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
@@ -777,21 +757,31 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/profissional_search.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="37" column="17" lean-forward="true" selection-start-line="37" selection-start-column="17" selection-end-line="37" selection-end-column="17" />
+          <folding>
+            <marker date="1510428225328" expanded="false" signature="4126:4133" ph="«" />
+            <marker date="1510428225328" expanded="false" signature="4779:4786" ph="»" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/static/css/layout.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="160" column="22" lean-forward="false" selection-start-line="160" selection-start-column="18" selection-end-line="160" selection-end-column="22" />
+        <state relative-caret-position="625">
+          <caret line="31" column="0" lean-forward="false" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/contratou/templates/contratou/profissional_search.html">
+    <entry file="file://$PROJECT_DIR$/contratou/templates/layout.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="34" column="31" lean-forward="false" selection-start-line="34" selection-start-column="31" selection-end-line="34" selection-end-column="31" />
+        <state relative-caret-position="398">
+          <caret line="37" column="23" lean-forward="true" selection-start-line="34" selection-start-column="13" selection-end-line="37" selection-end-column="23" />
           <folding>
-            <marker date="1510428225328" expanded="false" signature="4126:4133" ph="«" />
-            <marker date="1510428225328" expanded="false" signature="4779:4786" ph="»" />
+            <marker date="1510429378333" expanded="false" signature="2955:2969" ph="..." />
           </folding>
         </state>
       </provider>

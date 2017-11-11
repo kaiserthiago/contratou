@@ -3,9 +3,31 @@
     width: 455px !important;
 }
 
-.navbar-inverse.navbar-job {
-    background-color: #88ca41;
+.navbar-default {
+    border: none;
+    color: #000;
+}
 
+.navbar-job{
+    background-color: #88ca41;
+    border-bottom: 1px solid #88ca41;
+    margin-bottom: 0;
+}
+
+.navbar-brand a img {
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.navbar-brand-job {
+    padding: 5px 0;
+}
+
+.navbar-brand-job img {
+    margin-top: 2px;
+    margin-left: 15px;
 }
 
 .estrelas input[type=radio] {
@@ -23,8 +45,8 @@
 
 /*Remove a margem padrão de baixo da navbar e as bordas arredondadas*/
 .navbar {
-    margin-bottom: 0px;
-    border-radius: 0px;
+    margin-bottom: 0;
+    border-radius: 0;
 }
 
 /* Style the side navigation */
@@ -227,10 +249,23 @@ h4 {
 
 /*Define o alinhamento e cores do rodapé*/
 footer {
-    background-color: #195128;
-    color: white;
-    padding: 10px;
-    font-size: 8pt;
-    font-weight: bold;
+    /*background-color: #195128;*/
+    /*color: white;*/
+    /*padding: 10px;*/
+    /*font-size: 8pt;*/
+    /*font-weight: bold;*/
+    /*text-align: center;*/
+
+    background-color: #f7f7f7;
+    border-top: 1px solid #eee;
+    line-height: 1;
+    margin-top: 60px;
+    padding: 25px 0 15px 0;
+    display: block;
+}
+
+footer p {
+    font-size: 0.9em;
+    color: #999;
     text-align: center;
 }
