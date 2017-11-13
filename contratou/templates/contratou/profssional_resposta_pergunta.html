@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block conteudo %}
+    <h3 class="page-header">Respondendo pergunta: {{ profissional.nome }}</h3>
+
+    <p><a href="{% url 'profissional_perguntas' profissional.id %}"><span
+            class="glyphicon glyphicon-arrow-left"></span> Voltar</a></p>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            {{ question.question }}
+        </div>
+        <div class="panel-body">
+            <form class="questions-form" action="" method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-info">Responder</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+

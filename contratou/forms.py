@@ -1,6 +1,7 @@
 from django import forms
 
-from contratou.models import Profissional, Contratante, Segmento, Area, AvaliacaoProfissional, AvaliacaoContratante
+from contratou.models import Profissional, Contratante, Segmento, Area, AvaliacaoProfissional, AvaliacaoContratante, \
+    ProfissionalAnswer
 
 
 class FormProfissional(forms.ModelForm):
@@ -65,7 +66,7 @@ class FormAvaliacaoProfissional(forms.ModelForm):
     class Meta:
         model = AvaliacaoProfissional
         # fields = ['profissional', 'servico', 'data_servico', 'comentario', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5']
-        exclude = ('contratante', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5')
+        exclude = ('contratante',)
 
         widgets = {
             'profissional': forms.Select(attrs={'class': 'form-control'}),
@@ -95,3 +96,29 @@ class FormAvaliacaoContratante(forms.ModelForm):
         model = AvaliacaoContratante
         fields = ['profissional', 'contratante', 'servico', 'campo1', 'campo2', 'campo3', 'campo4', 'campo5',
                   'comentario']
+
+
+class ProfissionalQuestionForm(forms.Form):
+    question = forms.CharField(
+        label='Perguntar',
+        widget=forms.TextInput(
+            attrs={'class': 'form-control', 'id': 'question', 'placeholder': 'Faça sua pergunta...'}),
+        required=True
+    )
+
+
+class RespostaPerguntaForm(forms.ModelForm):
+    class Meta:
+        model = ProfissionalAnswer
+        exclude = ('user', 'profissional_question', 'status')
+
+        widgets = {
+            'answer': forms.Textarea(attrs={
+                'class': 'form-control',
+                'id': 'answer',
+                'placeholder': 'Responda aqui...'}),
+        }
+
+        labels = {
+            'answer': 'Resposta'
+        }

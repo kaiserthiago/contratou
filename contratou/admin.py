@@ -5,7 +5,7 @@ from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.models import User
 
 from contratou.models import Profissional, Contratante, Segmento, Area, Servico, AvaliacaoProfissional, \
-    AvaliacaoContratante, UserProfile
+    AvaliacaoContratante, UserProfile, ProfissionalAnswer, ProfissionalQuestion
 
 
 class AvaliacaoContratanteAdmin(admin.ModelAdmin):
@@ -47,8 +47,19 @@ class UserProfileInline(admin.StackedInline):
     model = UserProfile
     can_delete = False
 
+
 class UserAdmin(UserAdmin):
-    inlines = (UserProfileInline, )
+    inlines = (UserProfileInline,)
+
+
+class ProfissionalAnswerInline(admin.StackedInline):
+    model = ProfissionalAnswer
+    can_delete = False
+
+
+class ProfissionalQuestionAdmin(admin.ModelAdmin):
+    list_display = ('id', 'profissional', 'question', 'status')
+    inlines = (ProfissionalAnswerInline,)
 
 
 admin.site.unregister(User)
@@ -60,3 +71,4 @@ admin.site.register(Area, AreaAdmin)
 admin.site.register(Servico, ServicoAdmin)
 admin.site.register(AvaliacaoProfissional, AvaliacaoProfissionalAdmin)
 admin.site.register(AvaliacaoContratante, AvaliacaoContratanteAdmin)
+admin.site.register(ProfissionalQuestion, ProfissionalQuestionAdmin)

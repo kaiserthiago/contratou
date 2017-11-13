@@ -8,8 +8,8 @@
 {% load static %}
 
 {% block conteudo %}
-<p><a href="javascript:window.history.go(-1)"><span
-                    class="glyphicon glyphicon-arrow-left"></span> Voltar</a></p>
+    <p><a href="javascript:window.history.go(-1)"><span
+            class="glyphicon glyphicon-arrow-left"></span> Voltar</a></p>
 
     {% if request.user.is_authenticated %}
         <table class="table">
@@ -21,56 +21,423 @@
                     </td>
                     <td style="vertical-align:middle">
                         <h4>
-                            <strong>{{ profissional.nome }}</strong>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star checked"></span>
-                            <span class="fa fa-star"></span>
-                            <span class="fa fa-star"></span>
+                            <strong>{{ profissional.nome }}</strong><br>
                         </h4>
                         {% for area in profissional.area.all %}
                             <p>- {{ area }}</p>
                         {% endfor %}
                         <p>{{ profissional.cidade }}/{{ profissional.uf }}</p>
                     </td>
-                </tr>
-            {% endfor %}
-            </tbody>
-        </table>
-
-        <table class="table table-striped">
-            <thead>
-            <th>
-                <h4><strong>Avaliações do profissional </strong>
-
-                </h4>
-            </th>
-            <th>
-            </th>
-            </thead>
-            <tbody>
-            {% for avalia in avaliacao %}
-                <tr>
-                    <td style="vertical-align:middle">
-                        <p><strong>{{ avalia.servico }}</strong> - <em>{{ avalia.data_servico }}</em> (Avaliado
-                            por: {{ avalia.contratante }})</p>
-                        <p>{{ avalia.comentario }}</p>
-                    </td>
                     <td>
-                        Critério 1: {{ avalia.campo1 }}<br>
-                        Critério 2: {{ avalia.campo2 }}<br>
-                        Critério 3: {{ avalia.campo3 }}<br>
-                        Critério 4: {{ avalia.campo4 }}<br>
-                        Critério 5: {{ avalia.campo5 }}<br>
+                        <h4><strong>Média de avaliações</strong></h4>
+                        Critério 1:
+                        {% if campos.campo1 >= 1 and campos.campo1 < 2 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo1 >= 2 and campos.campo1 < 3 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo1 >= 3 and campos.campo1 < 4 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif  campos.campo1 >= 3 and campos.campo1 < 4 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo1 >= 4 and campos.campo1 < 5 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                        {% endif %}
+                        <br>
+                        Critério 2:
+                        {% if campos.campo2 >= 1 and campos.campo2 < 2 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo2 >= 2 and campos.campo2 < 3 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo2 >= 3 and campos.campo2 < 4 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif  campos.campo2 >= 3 and campos.campo2 < 4 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo2 >= 4 and campos.campo2 < 5 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                        {% endif %}
+                        <br>
+                        Critério 3:
+                        {% if campos.campo3 >= 1 and campos.campo3 < 2 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo3 >= 2 and campos.campo3 < 3 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo3 >= 3 and campos.campo3 < 4 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif  campos.campo3 >= 3 and campos.campo3 < 4 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo3 >= 4 and campos.campo3 < 5 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                        {% endif %}
+                        <br>
+                        Critério 4:
+                        {% if campos.campo4 >= 1 and campos.campo4 < 2 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo4 >= 2 and campos.campo4 < 3 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo4 >= 3 and campos.campo4 < 4 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif  campos.campo4 >= 3 and campos.campo4 < 4 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo4 >= 4 and campos.campo4 < 5 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                        {% endif %}
+                        <br>
+                        Critério 5:
+                        {% if campos.campo5 >= 1 and campos.campo5 < 2 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo5 >= 2 and campos.campo5 < 3 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo5 >= 3 and campos.campo5 < 4 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif  campos.campo5 >= 3 and campos.campo5 < 4 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star"></i>
+                        {% elif campos.campo5 >= 4 and campos.campo5 < 5 %}
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                            <i class="fa fa-star checked"></i>
+                        {% endif %}
+                        <br>
                     </td>
-                </tr>
-            {% empty %}
-                <tr>
-                    <td colspan="2" class="text-center bg-warning">Profissional sem avaliações</td>
                 </tr>
             {% endfor %}
             </tbody>
         </table>
+
+        <section class="section-questions-market-place">
+            <div class="container">
+                <header>
+                    <h4><strong>Perguntas ao profissional</strong></h4>
+                </header>
+                {% for profissional in profissionais %}
+
+
+                    <section class="section-questions-market-place-content">
+                    <form class="questions-form"
+                          action="{% url 'contratou.profissional_new_question' profissional.id %}"
+                          method="post">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-info">Perguntar</button>
+                    </form>
+                {% endfor %}
+
+                <ul class="ml-questions-list">
+                    {% for q in questions %}
+                        <li>
+                            <article class="ml-questions-list-question">
+                                <p><i class="fa fa-comment"></i> {{ q.question }}</p>
+                            </article>
+                            <article class="ml-questions-list-answer">
+                                {% for a in q.get_answers %}
+                                    <p><i class="fa fa-comments"></i> {{ a.answer }}</p>
+                                {% endfor %}
+                            </article>
+                        </li>
+                    {% endfor %}
+                </ul>
+                </section>
+            </div>
+        </section>
+
+        <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#avaliacoes">Visualziar
+            avaliações
+        </button>
+
+        <div id="avaliacoes" class="collapse">
+            <table class="table table-striped">
+                <thead>
+                <th>
+                    <h4><strong>Avaliações do profissional </strong>
+
+                    </h4>
+                </th>
+                <th>
+                </th>
+                </thead>
+                <tbody>
+                {% for avalia in avaliacao %}
+                    <tr>
+                        <td style="vertical-align:middle">
+                            <p><strong>{{ avalia.servico }}</strong> - <em>{{ avalia.data_servico }}</em> (Avaliado
+                                por: {{ avalia.contratante }})</p>
+                            <p>{{ avalia.comentario }}</p>
+                        </td>
+                        <td>
+                            Critério 1:
+                            {% if avalia.campo1 == 1 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo1 == 2 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo1 == 3 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif  avalia.campo1 == 4 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo1 == 5 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                            {% endif %}
+                            <br>
+                            Critério 2:
+                            {% if avalia.campo2 == 1 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo2 == 2 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo2 == 3 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif  avalia.campo2 == 4 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo2 == 5 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                            {% endif %}
+                            <br>
+                            Critério 3:
+                            {% if avalia.campo3 == 1 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo3 == 2 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo3 == 3 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif  avalia.campo3 == 4 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo3 == 5 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                            {% endif %}
+                            <br>
+                            Critério 4:
+                            {% if avalia.campo4 == 1 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo4 == 2 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo4 == 3 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif  avalia.campo4 == 4 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo4 == 5 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                            {% endif %}
+                            <br>
+                            Critério 5:
+                            {% if avalia.campo5 == 1 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo5 == 2 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo5 == 3 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif  avalia.campo5 == 4 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star"></i>
+                            {% elif avalia.campo5 == 5 %}
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                                <i class="fa fa-star checked"></i>
+                            {% endif %}
+                            <br>
+                        </td>
+                    </tr>
+                {% empty %}
+                    <tr>
+                        <td colspan="2" class="text-center bg-warning">Profissional sem avaliações</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
     {% else %}
         {% if erro %}
             <p class="alert alert-danger">

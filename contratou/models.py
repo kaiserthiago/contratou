@@ -69,6 +69,14 @@ class Profissional(models.Model):
     foto = models.ImageField(upload_to='img_profissional', blank=False, null=False)
     area = models.ManyToManyField(Area)
 
+    @property
+    def question_no_answer(self):
+        return self.profissionalquestion_set.filter(profissionalanswer__isnull=True)
+
+    @property
+    def question_answer(self):
+        return self.profissionalquestion_set.filter(profissionalanswer__isnull=False)
+
     class Meta:
         verbose_name_plural = 'Profissionais'
         ordering = ['nome']
@@ -157,6 +165,7 @@ class AvaliacaoProfissional(models.Model):
         verbose_name_plural = 'Avaliação Profissionais'
         ordering = ['profissional', 'contratante']
 
+
 class AvaliacaoContratante(models.Model):
     profissional = models.ForeignKey(Profissional)
     contratante = models.ForeignKey(Contratante)
@@ -172,9 +181,49 @@ class AvaliacaoContratante(models.Model):
         verbose_name_plural = 'Avaliação Contratantes'
         ordering = ['contratante', 'profissional']
 
+
 class UserProfile(models.Model):
     usuario = models.OneToOneField(User, unique=True)
+    profissional = models.OneToOneField(Profissional, unique=True)
     endereco = models.CharField(max_length=255, null=True, blank=True)
     cidade = models.CharField(max_length=150, null=True, blank=True)
     estado = models.CharField(max_length=2, null=True, blank=True)
     pais = models.CharField(max_length=2, null=True, blank=True)
+
+
+class ProfissionalQuestion(models.Model):
+    user = models.ForeignKey(User)
+    profissional = models.ForeignKey('Profissional')
+    question = models.TextField()
+    STATUS_CHOICES = (
+        ('Ativo', 'Ativo'),
+        ('Inativo', 'Inativo'),
+    )
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Ativo")
+
+    class Meta:
+        verbose_name_plural = 'Perguntas ao Profissional'
+
+    @property
+    def get_answers(self):
+        return self.profissionalanswer_set.filter(status='Ativo')
+
+    def __str__(self):
+        return self.question
+
+
+class ProfissionalAnswer(models.Model):
+    user = models.ForeignKey(User)
+    profissional_question = models.ForeignKey(ProfissionalQuestion)
+    answer = models.TextField()
+    STATUS_CHOICES = (
+        ('Ativo', 'Ativo'),
+        ('Inativo', 'Inativo'),
+    )
+    status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Ativo")
+
+    class Meta:
+        verbose_name_plural = 'Respostas'
+
+    def __str__(self):
+        return self.answer

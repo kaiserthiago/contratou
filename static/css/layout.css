@@ -269,3 +269,113 @@ footer p {
     color: #999;
     text-align: center;
 }
+
+
+.section-questions-market-place {
+    margin: 30px 0;
+}
+
+.section-questions-market-place h2 {
+    margin: 40px;
+    font-size: 2.1em;
+    text-align: center;
+}
+
+.section-questions-market-place .section-questions-market-place-content {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+}
+
+.section-questions-market-place .section-questions-market-place-content ul {
+    list-style: none;
+}
+
+.section-questions-market-place .section-questions-market-place-content a {
+    font-size: 0.9em;
+    color: #0033bb;
+}
+
+.section-questions-market-place .section-questions-market-place-content a:hover {
+    font-size: 0.9em;
+    color: #0033bb;
+    text-decoration: underline;
+}
+
+.section-questions-market-place .questions-form {
+    background-color: #dcf1fa;
+    padding: 10px 10px 10px 30px;
+    margin-bottom: 0;
+    position: relative;
+    font-size: 13px;
+    min-height: 54px;
+}
+
+.section-questions-market-place .questions-form:before {
+    content: "\f075";
+    color: #79a9f5;
+    display: inline-block;
+    font-family: FontAwesome;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    left: 7px;
+    position: absolute;
+    text-decoration: none;
+    top: 22px;
+}
+
+.section-questions-market-place .questions-form textarea {
+    font-size: 0.9em;
+    margin-bottom: 10px
+}
+
+.section-questions-market-place .question-shipping-link {
+    color: gray;
+    position: relative;
+    top: -33px;
+    left: 180px;
+    font-size: 0.9em;
+}
+
+.section-questions-market-place .question-shipping-link a {
+    font-size: 1em;
+    color: #808080;
+    text-decoration: underline;
+}
+
+.section-questions-market-place .question-shipping-link a:hover {
+    font-size: 1em;
+    color: #808080;
+    text-decoration: underline;
+}
+
+.section-questions-market-place .ml-questions-list {
+    padding-left: 0;
+}
+
+.section-questions-market-place .ml-questions-list li {
+    border-bottom: 1px solid #ddd;
+}
+
+.section-questions-market-place .ml-questions-list .ml-questions-list-question {
+    padding: 15px 0 0 0;
+}
+
+.section-questions-market-place .ml-questions-list .ml-questions-list-question i {
+    color: #79a9f5;
+}
+
+.section-questions-market-place .ml-questions-list .ml-questions-list-answer {
+    padding: 0 0 5px 0;
+    margin-left: 20px;
+}
+
+.section-questions-market-place .ml-questions-list .ml-questions-list-answer i {
+    color: #9cd1f3;
+}
+
+.section-questions-market-place .ml-questions-list .ml-questions-list-answer span {
+    font-size: 0.8em;
+    color: #999;
+}

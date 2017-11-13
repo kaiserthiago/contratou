@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+{% block class_perguntas %} class="active" {% endblock %}
+
+{% load static %}
+
+{% block conteudo %}
+    <h2 class="page-header">Perguntas do profissional: {{ profissional.nome }}</h2>
+
+    {#            <p><a href="{% url 'my_products' %}"><span#}
+    {#                    class="glyphicon glyphicon-arrow-left"></span> Voltar</a></p>#}
+
+    <div class="container">
+        <h4 class="page-header">Perguntas pendentes</h4>
+        <section class="section-questions-market-place">
+            <div class="container">
+                <section class="section-questions-market-place-content">
+                    <ul class="ml-questions-list">
+                        {% for question in profissional.question_no_answer %}
+                            <li>
+                                <article class="ml-questions-list-question">
+                                    <p><i class="fa fa-comment"></i> {{ question.question }}</p>
+                                </article>
+                                <article class="ml-questions-list-answer">
+                                    <a href="{% url 'profissional_responder_pergunta' profissional.id question.id %}"
+                                       title="Responder"><span
+                                            class="glyphicon glyphicon-pencil"></span> Responder</a>
+                                </article>
+                            </li>
+                        {% empty %}
+                            <li class="alert-warning">
+                                <article class="ml-questions-list-question">
+                                    <p><i class="fa fa-comment"></i><strong> Sem perguntas pendentes!</strong></p>
+                                </article>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </section>
+            </div>
+        </section>
+    </div>
+
+    <div class="container">
+    <h4 class="page-header">Perguntas respondidas</h4>
+    <section class="section-questions-market-place">
+        <div class="container">
+            <section class="section-questions-market-place-content">
+                <ul class="ml-questions-list">
+                    {% for question in profissional.question_answer %}
+                        <li>
+                            <article class="ml-questions-list-question">
+                                <p><i class="fa fa-comment"></i> {{ question.question }}</p>
+                            </article>
+                            <article class="ml-questions-list-answer">
+                                {% for a in question.get_answers %}
+                                    <p><i class="fa fa-comments"></i> {{ a.answer }}</p>
+                                {% endfor %}
+                            </article>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    </section>
+{% endblock %}
+

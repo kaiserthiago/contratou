@@ -2,11 +2,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 import algoliasearch_django as algoliasearch
 from django.core.paginator import Paginator, PageNotAnInteger, EmptyPage
+from django.db.models import Avg
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 
-from contratou.forms import FormAvaliacaoProfissional
-from contratou.models import Profissional, AvaliacaoProfissional, Segmento, Area
+from contratou.forms import FormAvaliacaoProfissional, ProfissionalQuestionForm, RespostaPerguntaForm
+from contratou.models import Profissional, AvaliacaoProfissional, Segmento, Area, ProfissionalQuestion, \
+    ProfissionalAnswer
 
 
 def login_view(request):
@@ -74,6 +76,7 @@ def profissionais(request, segmento_id):
     }
     return render(request, 'contratou/segmentos.html', context)
 
+
 def segmentos(request):
     segmentos = Segmento.objects.all()
 
@@ -83,19 +86,85 @@ def segmentos(request):
 
     return render(request, 'contratou/segmentos.html', context)
 
+
+def profissional_perguntas(request, profissional_id):
+    profissional = get_object_or_404(Profissional, pk=profissional_id)
+
+    context = {
+        'profissional': profissional
+    }
+
+    return render(request, 'contratou/profissional_perguntas.html', context)
+
+
+def profissional_new_question(request, profissional_id):
+    profissional = get_object_or_404(Profissional, pk=profissional_id)
+
+    if request.method == 'POST':
+        form = ProfissionalQuestionForm(request.POST)
+        if form.is_valid():
+            question = ProfissionalQuestion()
+
+            question.user = request.user
+            question.profissional = profissional
+            question.question = form.cleaned_data['question']
+            question.save()
+
+    return redirect('contratou.profissional_detalhe', profissional_id)
+
+
+def profissional_responder_pergunta(request, profissional_id, question_id):
+    profissional = get_object_or_404(Profissional, pk=profissional_id)
+    question = get_object_or_404(ProfissionalQuestion, pk=question_id)
+
+    form = RespostaPerguntaForm()
+
+    if request.method == 'POST':
+        form = RespostaPerguntaForm(request.POST)
+        if form.is_valid():
+            profissional_answer = ProfissionalAnswer()
+
+            profissional_answer.user = request.user
+            profissional_answer.answer = form.cleaned_data['answer']
+            profissional_answer.profissional_question = question
+            profissional_answer.save()
+
+            return redirect('profissional_perguntas', profissional.id)
+
+    context = {
+        'form': form,
+        'profissional': profissional,
+        'question': question
+    }
+
+    return render(request, 'contratou/profssional_resposta_pergunta.html', context)
+
+
 def profissional_detalhe(request, profissional_id):
     profissionais = Profissional.objects.filter(pk=profissional_id)
     avaliacao = AvaliacaoProfissional.objects.filter(profissional=profissional_id)
+    campos = AvaliacaoProfissional.objects.filter(profissional=profissional_id).aggregate(campo1=Avg('campo1'),
+                                                                                          campo2=Avg('campo2'),
+                                                                                          campo3=Avg('campo3'),
+                                                                                          campo4=Avg('campo4'),
+                                                                                          campo5=Avg('campo5'))
+
+    questions = ProfissionalQuestion.objects.filter(profissional=profissional_id, status='Ativo')
+    form = ProfissionalQuestionForm()
 
     context = {
         'profissionais': profissionais,
         'avaliacao': avaliacao,
+        'campos': campos,
+        'questions': questions,
+        'form': form,
     }
     return render(request, 'contratou/profissional_detalhe.html', context)
 
 
 def sobre(request):
     return render(request, 'contratou/sobre.html', {})
+
 
 def search(request):
     segmentos = Segmento.objects.all().order_by('descricao')
