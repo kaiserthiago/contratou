@@ -184,7 +184,7 @@ class AvaliacaoContratante(models.Model):
 
 class UserProfile(models.Model):
     usuario = models.OneToOneField(User, unique=True)
-    profissional = models.OneToOneField(Profissional, unique=True)
+    profissional = models.OneToOneField(Profissional, unique=True, blank=True, null=True)
     endereco = models.CharField(max_length=255, null=True, blank=True)
     cidade = models.CharField(max_length=150, null=True, blank=True)
     estado = models.CharField(max_length=2, null=True, blank=True)
