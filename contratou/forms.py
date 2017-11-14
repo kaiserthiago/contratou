@@ -116,7 +116,8 @@ class RespostaPerguntaForm(forms.ModelForm):
             'answer': forms.Textarea(attrs={
                 'class': 'form-control',
                 'id': 'answer',
-                'placeholder': 'Responda aqui...'}),
+                'placeholder': 'Responda aqui...',
+            'autofocus':'autofocus'}),
         }
 
         labels = {

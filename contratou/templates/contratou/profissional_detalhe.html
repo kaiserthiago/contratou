@@ -30,7 +30,7 @@
                     </td>
                     <td>
                         <h4><strong>Média de avaliações</strong></h4>
-                        Critério 1:
+                        Organização:
                         {% if campos.campo1 >= 1 and campos.campo1 < 2 %}
                             <i class="fa fa-star checked"></i>
                             <i class="fa fa-star"></i>
@@ -63,7 +63,7 @@
                             <i class="fa fa-star checked"></i>
                         {% endif %}
                         <br>
-                        Critério 2:
+                        Prazo:
                         {% if campos.campo2 >= 1 and campos.campo2 < 2 %}
                             <i class="fa fa-star checked"></i>
                             <i class="fa fa-star"></i>
@@ -96,7 +96,7 @@
                             <i class="fa fa-star checked"></i>
                         {% endif %}
                         <br>
-                        Critério 3:
+                        Preço:
                         {% if campos.campo3 >= 1 and campos.campo3 < 2 %}
                             <i class="fa fa-star checked"></i>
                             <i class="fa fa-star"></i>
@@ -129,7 +129,7 @@
                             <i class="fa fa-star checked"></i>
                         {% endif %}
                         <br>
-                        Critério 4:
+                        Qualidade:
                         {% if campos.campo4 >= 1 and campos.campo4 < 2 %}
                             <i class="fa fa-star checked"></i>
                             <i class="fa fa-star"></i>
@@ -162,7 +162,7 @@
                             <i class="fa fa-star checked"></i>
                         {% endif %}
                         <br>
-                        Critério 5:
+                        Recomendo:
                         {% if campos.campo5 >= 1 and campos.campo5 < 2 %}
                             <i class="fa fa-star checked"></i>
                             <i class="fa fa-star"></i>
@@ -237,7 +237,7 @@
             </div>
         </section>
 
-        <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#avaliacoes">Visualziar
+        <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#avaliacoes">Detalhar
             avaliações
         </button>
 
@@ -261,7 +261,7 @@
                             <p>{{ avalia.comentario }}</p>
                         </td>
                         <td>
-                            Critério 1:
+                            Organização:
                             {% if avalia.campo1 == 1 %}
                                 <i class="fa fa-star checked"></i>
                                 <i class="fa fa-star"></i>
@@ -294,7 +294,7 @@
                                 <i class="fa fa-star checked"></i>
                             {% endif %}
                             <br>
-                            Critério 2:
+                            Prazo:
                             {% if avalia.campo2 == 1 %}
                                 <i class="fa fa-star checked"></i>
                                 <i class="fa fa-star"></i>
@@ -327,7 +327,7 @@
                                 <i class="fa fa-star checked"></i>
                             {% endif %}
                             <br>
-                            Critério 3:
+                            Preço:
                             {% if avalia.campo3 == 1 %}
                                 <i class="fa fa-star checked"></i>
                                 <i class="fa fa-star"></i>
@@ -360,7 +360,7 @@
                                 <i class="fa fa-star checked"></i>
                             {% endif %}
                             <br>
-                            Critério 4:
+                            Qualidade:
                             {% if avalia.campo4 == 1 %}
                                 <i class="fa fa-star checked"></i>
                                 <i class="fa fa-star"></i>
@@ -393,7 +393,7 @@
                                 <i class="fa fa-star checked"></i>
                             {% endif %}
                             <br>
-                            Critério 5:
+                            Recomendo:
                             {% if avalia.campo5 == 1 %}
                                 <i class="fa fa-star checked"></i>
                                 <i class="fa fa-star"></i>

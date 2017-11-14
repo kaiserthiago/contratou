@@ -189,12 +189,19 @@ class UserProfile(models.Model):
     cidade = models.CharField(max_length=150, null=True, blank=True)
     estado = models.CharField(max_length=2, null=True, blank=True)
     pais = models.CharField(max_length=2, null=True, blank=True)
+    TIPO_CHOICES = (
+        ('Usuário', 'Usuário'),
+        ('Profissional', 'Profissional'),
+    )
+    tipo = models.CharField(max_length=20, choices=TIPO_CHOICES, default="Usuário")
+
 
 
 class ProfissionalQuestion(models.Model):
     user = models.ForeignKey(User)
     profissional = models.ForeignKey('Profissional')
     question = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
     STATUS_CHOICES = (
         ('Ativo', 'Ativo'),
         ('Inativo', 'Inativo'),
@@ -202,7 +209,8 @@ class ProfissionalQuestion(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default="Ativo")
 
     class Meta:
-        verbose_name_plural = 'Perguntas ao Profissional'
+        verbose_name_plural = 'Perguntas'
+
 
     @property
     def get_answers(self):

@@ -58,7 +58,8 @@ class ProfissionalAnswerInline(admin.StackedInline):
 
 
 class ProfissionalQuestionAdmin(admin.ModelAdmin):
-    list_display = ('id', 'profissional', 'question', 'status')
+    list_display = ('id', 'profissional', 'question', 'status', 'created_at')
+    list_filter = ['profissional', 'created_at']
     inlines = (ProfissionalAnswerInline,)
 
 

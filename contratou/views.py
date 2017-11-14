@@ -89,9 +89,11 @@ def segmentos(request):
 
 def profissional_perguntas(request, profissional_id):
     profissional = get_object_or_404(Profissional, pk=profissional_id)
+    user = ProfissionalQuestion.objects.filter(user=request.user.id).order_by('-created_at')
 
     context = {
-        'profissional': profissional
+        'profissional': profissional,
+        'user': user,
     }
 
     return render(request, 'contratou/profissional_perguntas.html', context)
