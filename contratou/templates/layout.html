@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="pt-br">
 <head>
     {% block head %} {% endblock %}
@@ -31,7 +32,6 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            {% load static %}
             <a href="{% url 'contratou.home' %}">
                         <span class="navbar-brand navbar-brand-job"> <img src="{% static '/img/logo3.png' %}"
                                                                           class="img-responsive"
@@ -44,7 +44,7 @@
                         class="fa fa-home" style="font-size:16px"></i> Home</a>
                 </li>
                 <li {% block class_search %} {% endblock %}><a href="{% url 'contratou.search' %}"><i
-                        class="fa fa-search" style="font-size:16px"></i> Pesquisar</a>
+                        class="fa fa-search" style="font-size:16px"></i> Profissionais</a>
                 </li>
                 <li
                         {% block class_sobre %} {% endblock %}><a href="{% url 'contratou.sobre' %}"><i
@@ -55,17 +55,6 @@
                         class="fa fa-envelope-o" style="font-size:16px"></i> Contato</a>
                 </li>
             </ul>
-            {#            <form action="{% url 'contratou.search' %}" class="navbar-form navbar-left navbar-form-job">#}
-            {#            <form action="" class="navbar-form navbar-left navbar-form-job">#}
-            {#                <div class="input-group">#}
-            {#                    <input type="text" class="form-control" name="qs" id="search"#}
-            {#                           placeholder="Busca pela área de atuação..." value="{{ qs }}">#}
-            {#                    <span class="input-group-btn">#}
-            {#                                <button type="submit" class="btn btn-default"><i class="fa fa-search"></i></button>#}
-            {#                            </span>#}
-            {#                </div>#}
-            {#                <button type="submit" class="btn btn-default">Submit</button>#}
-            {#            </form>#}
             <ul class="nav navbar-nav navbar-right">
                 {% if request.user.is_authenticated %}
                     <li class="dropdown">
@@ -80,10 +69,10 @@
                                         Avaliar Profissional
                                     </a>
                                 </li>
-{#                                <li>#}
-{#                                    <a href="{% url 'profissional_perguntas' request.user.userprofile.profissional.id %}"><i#}
-{#                                            class="fa fa-question-circle-o" style="font-size:16px"></i> Minhas perguntas</a>#}
-{#                                </li>#}
+                                {#                                <li>#}
+                                {#                                    <a href="{% url 'profissional_perguntas' request.user.userprofile.profissional.id %}"><i#}
+                                {#                                            class="fa fa-question-circle-o" style="font-size:16px"></i> Minhas perguntas</a>#}
+                                {#                                </li>#}
                             {% endif %}
 
                             {#                            <li><a href="#"><i#}
