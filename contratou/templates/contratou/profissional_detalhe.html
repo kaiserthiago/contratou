@@ -3,13 +3,6 @@
 {% load static %}
 
 {% block conteudo %}
-    <section class="section-content">
-        <div class="container">
-            <p><a href="javascript:window.history.go(-1)"><span
-                    class="glyphicon glyphicon-arrow-left"></span> Voltar</a></p>
-        </div>
-    </section>
-
     {% if request.user.is_authenticated %}
         {% for profissional in profissionais %}
             <!--PERGUNTAS-->
