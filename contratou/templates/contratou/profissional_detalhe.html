@@ -14,13 +14,13 @@
         {% for profissional in profissionais %}
             <section class="section-content">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-md-3">
+{#                    <div class="row">#}
+{#                        <div class="col-md-3">#}
                             <div class="card">
                                 <img src="{{ profissional.foto.url }}" style="width:100%">
                             </div>
-                        </div>
-                        <div class="col-md-6">
+{#                        </div>#}
+{#                        <div class="col-md-6">#}
                             <div class="card">
                                 <div class="container">
                                     <h4><strong>{{ profissional.nome }}</strong></h4>
@@ -30,8 +30,8 @@
                                     <p>{{ profissional.cidade }}/{{ profissional.uf }}</p>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-md-3">
+{#                        </div>#}
+{#                        <div class="col-md-3">#}
                             <div class="card">
                                 <div class="container">
                                     <h4><strong>Reputação</strong></h4>
@@ -202,8 +202,8 @@
                                     <br>
                                 </div>
                             </div>
-                        </div>
-                    </div>
+{#                        </div>#}
+{#                    </div>#}
                 </div>
             </section>
         {% endfor %}
