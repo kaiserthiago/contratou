@@ -26,21 +26,7 @@
 <body>
 <nav class="navbar navbar-inverse">
     <div class="container">
-        {#        <div class="navbar-header">#}
-        {#            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">#}
-        {#                <span class="icon-bar"></span>#}
-        {#                <span class="icon-bar"></span>#}
-        {#                <span class="icon-bar"></span>#}
-        {#            </button>#}
-        {#            #}
-        {#        </div>#}
-        {#        <div class="collapse navbar-collapse" id="myNavbar">#}
         <ul class="nav navbar-nav nav-pills" role="tablist">
-{#            <li>#}
-{#                <a class="navbar-brand nav-pills" href="{% url 'contratou.home' %}" role="tablist">#}
-{#                    Contratou!#}
-{#                </a>#}
-{#            </li>#}
             <li {% block class_home %} {% endblock %}><a href="{% url 'contratou.home' %}"><i
                     class="fa fa-home" style="font-size:16px"></i></a>
             </li>
@@ -55,8 +41,6 @@
                     {% block class_contato %} {% endblock %}><a href="{% url 'contratou.contato' %}"><i
                     class="fa fa-envelope-o" style="font-size:16px"></i></a>
             </li>
-            {#            </ul>#}
-            {#            <ul class="nav navbar-nav nav-pills navbar-right" role="tablist">#}
             {% if request.user.is_authenticated %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
@@ -70,17 +54,13 @@
                                     Avaliar Profissional
                                 </a>
                             </li>
-                            <li>
-                                <a href="{% url 'profissional_perguntas' request.user.userprofile.profissional.id %}"><i
-                                        class="fa fa-question-circle-o" style="font-size:16px"></i> Minhas perguntas</a>
-                            </li>
-                        {% endif %}
 
-                        <li><a href="#"><i
-                                class="fa fa-pencil-square" style="font-size:16px"></i> Avaliações realizadas</a>
-                        </li>
-                        <li class="divider"></li>
-                        {% if request.user.userprofile.tipo == 'Profissional' %}
+{#                            <li>#}
+{#                                <a href="{% url 'profissional_perguntas' request.user.userprofile.profissional.id %}"><i#}
+{#                                        class="fa fa-question-circle-o" style="font-size:16px"></i> Minhas perguntas</a>#}
+{#                            </li>#}
+                            
+                        {% elif request.user.userprofile.tipo == 'Profissional' %}
                             <li>
                                 <a href="{% url 'profissional_perguntas' request.user.userprofile.profissional.id %}"><i
                                         class="fa fa-question-circle-o" style="font-size:16px"></i> Minhas perguntas</a>
@@ -92,8 +72,10 @@
                             <a href="{% url 'admin:login' %}" target="_blank"><i
                                     class="fa fa-tasks" style="font-size:16px"></i> Admin</a>
                         </li>
-                        <li><a href="#"><i
-                                class="fa fa-user-circle-o" style="font-size:16px"></i> Meus dados</a></li>
+
+                        {#                        <li><a href="#"><i#}
+                        {#                                class="fa fa-user-circle-o" style="font-size:16px"></i> Meus dados</a>#}
+                        {#                        </li>#}
 
                         <li>
                             <a data-toggle="modal" href="#modal-logout"><i
@@ -118,16 +100,7 @@
 <footer>
     <p>Copyright © - Todos os direitos reservados</p>
 </footer>
-{#{% if request.user.is_authenticated %}#}
-{##}
-{#{% else %}#}
-{# {% if erro %}#}
-{# <p class="alert alert-danger">#}
-{# Usuário ou senha inválidos!#}
-{# </p>#}
-{# {% endif %}#}
-{# {% include 'contratou/login_include.html' %}#}
-{#{% endif %}#}
+
 <!-- Modal LOGIN-->
 <div class="modal fade" id="modal-login" role="dialog">
     <div class="modal-dialog">
