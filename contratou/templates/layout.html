@@ -28,24 +28,25 @@
     <div class="container">
         <ul class="nav navbar-nav nav-pills" role="tablist">
             <li {% block class_home %} {% endblock %}><a href="{% url 'contratou.home' %}"><i
-                    class="fa fa-home" style="font-size:16px"></i></a>
+                    class="fa fa-home" style="font-size:24px"></i></a>
             </li>
-            <li {% block class_search %} {% endblock %}><a href="{% url 'contratou.search' %}"><i
-                    class="fa fa-search" style="font-size:16px"></i></a>
+            <li {% block class_search %} {% endblock %}>
+                <a href="{% url 'contratou.search' %}"><i
+                        class="fa fa-search" style="font-size:24px"></i></a>
             </li>
-            <li
-                    {% block class_sobre %} {% endblock %}><a href="{% url 'contratou.sobre' %}"><i
-                    class="fa fa-question-circle-o" style="font-size:16px"></i></a>
+            <li {% block class_sobre %} {% endblock %}>
+                <a href="{% url 'contratou.sobre' %}"><i
+                        class="fa fa-question-circle-o" style="font-size:24px"></i></a>
             </li>
-            <li
-                    {% block class_contato %} {% endblock %}><a href="{% url 'contratou.contato' %}"><i
-                    class="fa fa-envelope-o" style="font-size:16px"></i></a>
+            <li {% block class_contato %} {% endblock %}>
+                <a href="{% url 'contratou.contato' %}"><i
+                        class="fa fa-envelope-o" style="font-size:24px"></i></a>
             </li>
             {% if request.user.is_authenticated %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><i
-                            class="fa fa-user-o" style="font-size:16px;"></i></a>
+                            class="fa fa-user-o" style="font-size:24px;"></i></a>
                     <ul class="dropdown-menu">
                         {% if request.user.userprofile.tipo == 'Usuário' %}
                             <li {% block class_avalia_prof %} {% endblock %}>
@@ -55,10 +56,10 @@
                                 </a>
                             </li>
 
-{#                            <li>#}
-{#                                <a href="{% url 'profissional_perguntas' request.user.userprofile.profissional.id %}"><i#}
-{#                                        class="fa fa-question-circle-o" style="font-size:16px"></i> Minhas perguntas</a>#}
-{#                            </li>#}
+                            {#                            <li>#}
+                            {#                                <a href="{% url 'profissional_perguntas' request.user.userprofile.profissional.id %}"><i#}
+                            {#                                        class="fa fa-question-circle-o" style="font-size:16px"></i> Minhas perguntas</a>#}
+                            {#                            </li>#}
 
                         {% elif request.user.userprofile.tipo == 'Profissional' %}
                             <li>
@@ -86,7 +87,7 @@
                 </li>
             {% else %}
                 <li><a data-toggle="modal" href="#modal-login"><i
-                        class="fa fa-lock" style="font-size:16px;"></i></a></li>
+                        class="fa fa-lock" style="font-size:24px;"></i></a></li>
             {% endif %}
         </ul>
         {#        </div>#}
