@@ -1,10 +1,18 @@
 {% extends "layout.html" %}
-{% block class_profissionais %} class="active" {% endblock %}
+{% block class_search %} class="active" {% endblock %}
 {% load static %}
 
 {% block conteudo %}
     {% if request.user.is_authenticated %}
+
         {% for profissional in profissionais %}
+            <!--BREADCBRUM-->
+            <ul class="breadcrumb">
+                <li><a href="{% url 'contratou.home' %}">Home</a></li>
+                <li><a href="{% url 'contratou.search' %}">Profissionais</a></li>
+                <li>{{ profissional.nome|truncatechars:20 }}</li>
+            </ul>
+
             <!--PERGUNTAS-->
             <section class="section-questions-market-place">
                 <div class="container">
